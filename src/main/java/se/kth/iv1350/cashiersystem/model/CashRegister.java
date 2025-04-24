@@ -1,7 +1,7 @@
 package se.kth.iv1350.cashiersystem.model;
 
 /**
-* Represents an actual cash register that stores payment
+* Represents the cash register that stores payment
 */
 public class CashRegister {
     private float cashInRegister;
