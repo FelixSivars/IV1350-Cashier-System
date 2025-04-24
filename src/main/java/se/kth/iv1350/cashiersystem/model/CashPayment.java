@@ -10,8 +10,9 @@ public class CashPayment {
     private float change;
 
 /**
-* Creates a new instance of CashPayment.
-* Calls the method to calculate the change based on the amount paid and the total price.
+* Constructor for creating a CashPayment object.
+* Initializes the amount paid and total price
+* calls method to calculate the change.
 *
 * @param amountPaid The amount paid by the customer.
 * @param totalPrice The total price of the sale.
