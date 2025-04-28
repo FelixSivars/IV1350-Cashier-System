@@ -19,10 +19,10 @@ public class Item {
     * and sets the default <code>quantity</code> to 1.
     *
     *
-    * @param id The item identification code.
-    * @param name The name of the item.
-    * @param price The price of a single unit of the item.
-    * @param description A description of the item.
+    * @param id            The item identification code.
+    * @param name          The name of the item.
+    * @param price         The price of a single unit of the item.
+    * @param description   A description of the item.
     * @param vatPercentage The VAT percentage applied to the item.
     */
     public Item(String id, String name, float price, String description, int vatPercentage) {
