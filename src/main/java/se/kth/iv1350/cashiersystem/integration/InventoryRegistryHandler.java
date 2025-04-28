@@ -6,17 +6,36 @@ import se.kth.iv1350.cashiersystem.dto.SaleDTO;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+* Handles communication with the external inventory registry.
+*/
 public class InventoryRegistryHandler {
     private final Map<String, ItemDTO> itemCatalog = new HashMap<>();
 
+    /**
+    * Creates a new instance of <code>InventoryRegistryHandler</code>.
+    * Populates the item catalog by fetching available items.
+    */
     public InventoryRegistryHandler() {
         fetchItems();
     }
 
+    /**
+    * Retrieves an item from the catalog using its item ID.
+    *
+    * @param itemId The identification of the item to fetch.
+    * @return The <code>ItemDTO</code> corresponding to the ID, or <code>null</code>if the item does not exist.
+    */
     public ItemDTO fetchItemById(String itemId) {
         return itemCatalog.get(itemId);
     }
 
+    /**
+    * Checks whether the given item ID exists in the inventory registry.
+    *
+    * @param itemId The identification of the item to check.
+    * @return <code>true</code> if the item exists, <code>false</code> otherwise.
+    */
     public boolean isValidItemId(String itemId) {
         return fetchItemById(itemId) != null;
     }
@@ -28,7 +47,12 @@ public class InventoryRegistryHandler {
                 "YouGoGo Blueberry 240 g ,low sugar youghurt, blueberry flavour", 6));
     }
 
+    /**
+    * Updates the external inventory registry with data from the completed sale.
+    *
+    * @param saleDTO The sale data used for updating inventory.
+    */
     public void updateInventoryRegistry(SaleDTO saleDTO) {
-        // DO SOMETHING :)
+       //unknown to the assignment what it does exactly with the sale data to update the accounting registry
     }
 }
