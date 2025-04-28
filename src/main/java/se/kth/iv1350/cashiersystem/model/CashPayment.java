@@ -2,21 +2,21 @@ package se.kth.iv1350.cashiersystem.model;
 
 
 /**
-* Represents a payment made by cash y the customer.
+* Represents a payment made by cash by the customer.
 */
 public class CashPayment {
     private float amountPaid;
     private float totalPrice;
     private float change;
 
-/**
-* Constructor for creating a CashPayment object.
-* Initializes the amount paid and total price
-* calls method to calculate the change.
-*
-* @param amountPaid The amount paid by the customer.
-* @param totalPrice The total price of the sale.
-*/
+ /**
+     * Constructor for creating a <code>CashPayment</code> object.
+     * Initializes the <code>amountPaid</code> and <code>totalPrice</code>.
+     * Calls <code>calculateChange</code> method to calculate the change.
+     *
+     * @param amountPaid The amount paid by the customer.
+     * @param totalPrice The total price of the sale.
+     */
     public CashPayment(float amountPaid, float totalPrice) {
         this.amountPaid = amountPaid;
         this.totalPrice = totalPrice;
