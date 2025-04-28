@@ -7,7 +7,7 @@ public class CashRegister {
     private float cashInRegister;
 
 /**
-* Constructor for the CashRegister class.
+* Constructor for the <code>CashRegister</code> class.
 */
     public CashRegister() {
     }
