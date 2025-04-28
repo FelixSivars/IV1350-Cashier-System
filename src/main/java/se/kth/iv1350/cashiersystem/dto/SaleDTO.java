@@ -12,7 +12,10 @@ import java.util.Collection;
  */
 public record SaleDTO(LocalDateTime dateTime, float runningTotal, float vatTotal,
                       float amountPaid, float change, float discount, Collection<Item> itemsInCart) {
-   
+
+ // NOT IN USE FOR SEMINAR 3
+ // Map<String, Integer> ItemQuantityMap, String = ItemID & Integer = Quantity
+ 
      /**
      * Gets the date and time when the sale has ended
      * 
