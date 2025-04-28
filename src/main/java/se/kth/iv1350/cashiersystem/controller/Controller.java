@@ -90,8 +90,11 @@ public class Controller {
 
     /**
      * Processes the payment made by the customer.
-     * Updates the cash register and records the payment in the sale class,
-     * turns sale into a DTO so it can be used for receipt generating. (ksk göra en separat metod för detta som inte ligger i makepayment)
+     * Creates a new instance of cashPayment and sets the amount to the amount paid by the customer,
+     * updates the cash register,
+     * creates a saleDTO from sale,
+     * printer receives saleDTO and prints it out,
+     * updates external systems with the data from saleDTO.
      *
      * @param amountPaid The amount of money paid by the customer.
      */
@@ -111,7 +114,13 @@ public class Controller {
         accountingRegistryHandler.updateAccountingRegistry(saleDTO);
         inventoryRegistryHandler.updateInventoryRegistry(saleDTO);
     }
-
+    
+ /**
+     * Fetches item details from inventory registry 
+     *
+     * @param itemId The item identification 
+     * @return Item details
+     */
     // Används i View också
     public ItemDTO getItemDTOfromId(String itemId) {
         return inventoryRegistryHandler.fetchItemById(itemId);
