@@ -11,8 +11,8 @@ import se.kth.iv1350.cashiersystem.model.CashRegister;
 import se.kth.iv1350.cashiersystem.model.Item;
 import se.kth.iv1350.cashiersystem.model.Sale;
 
- /**
- * This is the applications only controller, it handles system operations and coordinates interactions between the
+/**
+ * This is the application's only controller, it handles system operations and coordinates interactions between the
  * View-, Model- and Integration layers.
  */
 public class Controller {
@@ -22,11 +22,11 @@ public class Controller {
     private final CashRegister cashRegister = new CashRegister();
     private Sale sale;
 
-     /**
-     * Creates a new instance of Controller.
+    /**
+     * Creates a new instance of <code>Controller</code>.
      *
-     * @param registryCreator The creator of external registries
-     * @param printer         The printer that prints the receipt
+     * @param registryCreator The creator of external registries.
+     * @param printer The <code>Printer</code> that prints the receipt.
      */
     public Controller(RegistryCreator registryCreator, Printer printer) {
         this.printer = printer;
@@ -34,15 +34,15 @@ public class Controller {
         this.accountingRegistryHandler = registryCreator.getAccountingRegistryHandler();
     }
 
-     /**
-     * Method to start a new sale
+    /**
+     * Method to start a new sale.
      */
     public void startSale() {
         this.sale = new Sale();
     }
 
-     /**
-     * Retrieves the current running total of the sale
+    /**
+     * Retrieves the current running total of the sale.
      *
      * @return The running total of the sale.
      */
@@ -51,7 +51,7 @@ public class Controller {
     }
 
     /**
-     * Retrieves the current running total VAT of the sale
+     * Retrieves the current running total VAT of the sale.
      *
      * @return The running total VAT of the sale.
      */
@@ -59,7 +59,7 @@ public class Controller {
         return sale.getVatTotal();
     }
 
-     /**
+    /**
      * Processes the scanning of an item by its identifier and the quantity specified.
      * If the item is already in the sale, its quantity is updated.
      * Otherwise, the item is fetched from the inventory and added to the sale.
@@ -79,8 +79,8 @@ public class Controller {
         }
     }
 
-     /**
-     * Ends the current sale and returns the total amount including VAT of the sale
+    /**
+     * Ends the current sale and returns the total amount including VAT of the sale.
      *
      * @return The total price of the sale including VAT.
      */
@@ -88,13 +88,13 @@ public class Controller {
         return sale.endSale();
     }
 
-     /**
+    /**
      * Processes the payment made by the customer.
-     * Creates a new instance of cashPayment and sets the amount to the amount paid by the customer,
-     * updates the cash register,
-     * creates a saleDTO from sale,
-     * printer receives saleDTO and prints it out,
-     * updates external systems with the data from saleDTO.
+     * Creates a new instance of <code>CashPayment</code> and sets the amount to the amount paid by the customer,
+     * updates the <code>CashRegister</code>,
+     * creates a <code>SaleDTO</code> from <code>Sale</code>,
+     * <code>Printer</code> receives <code>SaleDTO</code> and prints it out,
+     * updates external systems with the data from <code>SaleDTO</code>.
      *
      * @param amountPaid The amount of money paid by the customer.
      */
@@ -114,14 +114,15 @@ public class Controller {
         accountingRegistryHandler.updateAccountingRegistry(saleDTO);
         inventoryRegistryHandler.updateInventoryRegistry(saleDTO);
     }
-    
-     /**
-     * Fetches item details from inventory registry 
+
+    /**
+     * Fetches item details from inventory registry.
      *
-     * @param itemId The item identification 
-     * @return Item details
+     * @param itemId The item identification.
+     * @return Item details.
      */
     public ItemDTO getItemDTOfromId(String itemId) {
         return inventoryRegistryHandler.fetchItemById(itemId);
     }
 }
+
