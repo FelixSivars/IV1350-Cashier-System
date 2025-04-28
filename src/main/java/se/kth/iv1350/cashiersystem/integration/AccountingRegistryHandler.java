@@ -2,6 +2,9 @@ package se.kth.iv1350.cashiersystem.integration;
 
 import se.kth.iv1350.cashiersystem.dto.SaleDTO;
 
+/**
+* Responsible for handling the interaction with the external accounting registry system.
+*/
 public class AccountingRegistryHandler {
 
      /**
