@@ -79,13 +79,19 @@ public class Sale {
     public float endSale() {
         return runningTotal;
     }
-
+    
+    /**
+     * Converts the current sale to a {@link SaleDTO} object for data transfer.
+     *
+     * @return A {@link SaleDTO} containing the sale details.
+     */
     public SaleDTO toDTO() {
         LocalDateTime dateTime = LocalDateTime.now();
         //Map<String, Integer> itemQuantityMap = getItemQuantityMap();
         return new SaleDTO(dateTime, runningTotal, vatTotal, cashPayment.getAmountPaid(), cashPayment.getChange(), discount, itemsInCart);
     }
 
+    //NOT IN USE FOR SEMINAR 3
     /*
     private Map<String, Integer> getItemQuantityMap() {
         Map<String, Integer> itemQuantityMap = new HashMap<>();
