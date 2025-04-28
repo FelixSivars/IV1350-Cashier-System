@@ -2,7 +2,7 @@ package se.kth.iv1350.cashiersystem.model;
 
 /**
  * Represents an item in the store.
- * Contains information about the item's ID, name, price, description, VAT percentage, and quantity.
+ * Contains information about the item's identification, name, price, description, VAT percentage, and quantity.
  */
 public class Item {
     private String id;
@@ -13,16 +13,18 @@ public class Item {
     private int quantity;
 
     /**
-     * Constructor for the Item class.
-     * Initializes the item with the provided ID, name, price, description, VAT percentage,
-     * and sets the default quantity to 1.
-     *
-     * @param id            The item identification code.
-     * @param name          The name of the item.
-     * @param price         The price of a single unit of the item.
-     * @param description   A description of the item.
-     * @param vatPercentage The VAT percentage applied to the item.
-     */
+    * Constructor for the <code>Item</code> class.
+    * Initializes the item with the provided <code>id</code>, <code>name</code>, <code>price</code>, 
+    * <code>description</code>, <code>vatPercentage</code>,
+    * and sets the default <code>quantity</code> to 1.
+    *
+    *
+    * @param id The item identification code.
+    * @param name The name of the item.
+    * @param price The price of a single unit of the item.
+    * @param description A description of the item.
+    * @param vatPercentage The VAT percentage applied to the item.
+    */
     public Item(String id, String name, float price, String description, int vatPercentage) {
         this.id = id;
         this.name = name;
