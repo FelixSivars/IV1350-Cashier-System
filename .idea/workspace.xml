@@ -5,29 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cda32f3-3aae-4f9f-bd56-078df4042dd1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/ItemDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/ReceiptDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/SaleDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/AccountingRegistryHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/DiscountCatalog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/InventoryRegistryHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/Printer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/RegistryCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/CashPayment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/CashRegister.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/Sale.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/startup/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/view/View.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/HelloWorldTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/ReceiptDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/SaleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/SaleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/InventoryRegistryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/InventoryRegistryHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/Printer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/RegistryCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/RegistryCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/Sale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +38,11 @@
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2w4qiuYRv43CzHElNeLaFffMw9k" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -67,11 +54,13 @@
     "Application.Main.executor": "Run",
     "Maven.cashiersystem [test].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Felix Sivars/Documents/GitHub/IV1350-Cashier-System",
     "onboarding.tips.debug.path": "Z:/Documents/Programmering/cashiersystem/src/main/java/se/kth/iv1350/Main.java",
-    "settings.editor.selected.configurable": "actions.on.save"
+    "settings.editor.selected.configurable": "editor.stickyLines"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

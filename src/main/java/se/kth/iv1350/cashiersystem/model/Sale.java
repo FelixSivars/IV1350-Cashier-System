@@ -5,8 +5,6 @@ import se.kth.iv1350.cashiersystem.dto.SaleDTO;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Sale {
     private Collection<Item> itemsInCart = new ArrayList<>();
@@ -84,10 +82,11 @@ public class Sale {
 
     public SaleDTO toDTO() {
         LocalDateTime dateTime = LocalDateTime.now();
-        Map<String, Integer> itemQuantityMap = getItemQuantityMap();
-        return new SaleDTO(dateTime, runningTotal, vatTotal, cashPayment.getAmountPaid(), cashPayment.getChange(), discount, itemQuantityMap);
+        //Map<String, Integer> itemQuantityMap = getItemQuantityMap();
+        return new SaleDTO(dateTime, runningTotal, vatTotal, cashPayment.getAmountPaid(), cashPayment.getChange(), discount, itemsInCart);
     }
 
+    /*
     private Map<String, Integer> getItemQuantityMap() {
         Map<String, Integer> itemQuantityMap = new HashMap<>();
         for (Item item : itemsInCart) {
@@ -95,4 +94,6 @@ public class Sale {
         }
         return itemQuantityMap;
     }
+    */
 }
+
