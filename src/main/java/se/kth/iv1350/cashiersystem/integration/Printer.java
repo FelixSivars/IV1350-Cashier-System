@@ -12,6 +12,13 @@ import java.util.Locale;
  * Represents the printer used for printing receipts.
  */
 public class Printer {
+
+     /**
+     * Prints the receipt for the completed sale.
+     * The receipt includes the date and time of the sale, item details, total price, total VAT, amount paid by the customer and the change returned.
+     *
+     * @param saleDTO The <code>SaleDTO</code> containing all relevant sale information to be printed.
+     */
     public void printReceipt(SaleDTO saleDTO) {
         System.out.println("----------------- Begin receipt -----------------");
         printTimeOfSale(saleDTO.getDateTime());
