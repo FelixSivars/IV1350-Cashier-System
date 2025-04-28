@@ -24,7 +24,7 @@ public class InventoryRegistryHandler {
     * Retrieves an item from the catalog using its item ID.
     *
     * @param itemId The identification of the item to fetch.
-    * @return The <code>ItemDTO</code> corresponding to the ID, or <code>null</code>if the item does not exist.
+    * @return The {@link itemDTO} corresponding to the ID, or <code>null</code>if the item does not exist.
     */
     public ItemDTO fetchItemById(String itemId) {
         return itemCatalog.get(itemId);
@@ -50,7 +50,7 @@ public class InventoryRegistryHandler {
     /**
     * Updates the external inventory registry with data from the completed sale.
     *
-    * @param saleDTO The sale data used for updating inventory.
+    * @param saleDTO The {@link SaleDTO} used for updating inventory.
     */
     public void updateInventoryRegistry(SaleDTO saleDTO) {
        //unknown to the assignment what it does exactly with the sale data to update the accounting registry
