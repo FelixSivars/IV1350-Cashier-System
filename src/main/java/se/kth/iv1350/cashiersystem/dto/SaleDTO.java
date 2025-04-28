@@ -70,7 +70,7 @@ public record SaleDTO(LocalDateTime dateTime, float runningTotal, float vatTotal
      /**
      * Gets the collection of items included in the sale.
      * 
-     * @return A collection of item objects in the cart
+     * @return A collection of <code>Item</code> objects in the cart.
      */
     public Collection<Item> getItemsInCart() {
         return itemsInCart;
