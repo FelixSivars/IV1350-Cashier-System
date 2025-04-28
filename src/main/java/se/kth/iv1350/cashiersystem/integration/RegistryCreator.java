@@ -8,18 +8,18 @@ public class RegistryCreator {
     private final AccountingRegistryHandler accountingRegistryHandler = new AccountingRegistryHandler();
 
     /**
-     * Provides access to the InventoryRegistryHandler.
+     * Provides access to the <code>InventoryRegistryHandler</code>.
      *
-     * @return The instance of InventoryRegistryHandler
+     * @return The instance of <code>InventoryRegistryHandler</code>
      */
     public InventoryRegistryHandler getInventoryRegistryHandler() {
         return inventoryRegistryHandler;
     }
 
     /**
-     * Provides access to the AccountingRegistryHandler.
+     * Provides access to the <code>AccountingRegistryHandler</code>.
      *
-     * @return The instance of AccountingRegistryHandler
+     * @return The instance of <code>AccountingRegistryHandler</code>
      */
     public AccountingRegistryHandler getAccountingRegistryHandler() {
         return accountingRegistryHandler;
