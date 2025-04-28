@@ -11,7 +11,7 @@ import se.kth.iv1350.cashiersystem.model.CashRegister;
 import se.kth.iv1350.cashiersystem.model.Item;
 import se.kth.iv1350.cashiersystem.model.Sale;
 
-/**
+ /**
  * This is the applications only controller, it handles system operations and coordinates interactions between the
  * View-, Model- and Integration layers.
  */
@@ -22,7 +22,7 @@ public class Controller {
     private final CashRegister cashRegister = new CashRegister();
     private Sale sale;
 
-    /**
+     /**
      * Creates a new instance of Controller.
      *
      * @param registryCreator The creator of external registries
@@ -34,14 +34,14 @@ public class Controller {
         this.accountingRegistryHandler = registryCreator.getAccountingRegistryHandler();
     }
 
-    /**
+     /**
      * Method to start a new sale
      */
     public void startSale() {
         this.sale = new Sale();
     }
 
-    /**
+     /**
      * Retrieves the current running total of the sale
      *
      * @return The running total of the sale.
@@ -59,7 +59,7 @@ public class Controller {
         return sale.getVatTotal();
     }
 
-    /**
+     /**
      * Processes the scanning of an item by its identifier and the quantity specified.
      * If the item is already in the sale, its quantity is updated.
      * Otherwise, the item is fetched from the inventory and added to the sale.
@@ -79,7 +79,7 @@ public class Controller {
         }
     }
 
-    /**
+     /**
      * Ends the current sale and returns the total amount including VAT of the sale
      *
      * @return The total price of the sale including VAT.
@@ -88,7 +88,7 @@ public class Controller {
         return sale.endSale();
     }
 
-    /**
+     /**
      * Processes the payment made by the customer.
      * Creates a new instance of cashPayment and sets the amount to the amount paid by the customer,
      * updates the cash register,
@@ -115,13 +115,12 @@ public class Controller {
         inventoryRegistryHandler.updateInventoryRegistry(saleDTO);
     }
     
- /**
+     /**
      * Fetches item details from inventory registry 
      *
      * @param itemId The item identification 
      * @return Item details
      */
-    // Används i View också
     public ItemDTO getItemDTOfromId(String itemId) {
         return inventoryRegistryHandler.fetchItemById(itemId);
     }
