@@ -53,6 +53,6 @@ public class InventoryRegistryHandler {
      * @param saleDTO The {@link SaleDTO} used for updating inventory.
      */
     public void updateInventoryRegistry(SaleDTO saleDTO) {
-        //unknown to the assignment what it does exactly with the sale data to update the accounting registry
+         //TODO: unknown to the assignment how it updates
     }
 }
