@@ -70,7 +70,7 @@ public class Controller {
     public void scanItem(String itemId, int quantity) {
         if (inventoryRegistryHandler.isValidItemId(itemId)) {
             if (sale.isItemInSale(itemId)) {
-                sale.updateQuantity(itemId, quantity);
+                sale.increaseQuantity(itemId, quantity);
             } else {
                 ItemDTO itemDTO = getItemDTOFromId(itemId);
                 Item item = itemDTO.toItem();
@@ -84,11 +84,12 @@ public class Controller {
      *
      * @return The total price of the sale including VAT.
      */
-    public float endSale() {
-        return sale.endSale();
+    public SaleDTO endSale() {
+        return sale.toDTO();
     }
 
     /**
+     * TODO: JENNY HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      * Processes the payment made by the customer.
      * Creates a new instance of <code>CashPayment</code> and sets the amount to the amount paid by the customer,
      * updates the <code>CashRegister</code>,
@@ -98,19 +99,20 @@ public class Controller {
      *
      * @param amountPaid The amount of money paid by the customer.
      */
-    public void makePayment(float amountPaid) {
+    public float processPayment(float amountPaid) {
         float totalPrice = sale.getRunningTotal();
-        cashRegister.updateCashInRegister(totalPrice);
 
         CashPayment cashPayment = new CashPayment(amountPaid, totalPrice);
         sale.setCashPayment(cashPayment);
 
         SaleDTO saleDTO = sale.toDTO();
         printer.printReceipt(saleDTO);
-        updateExternalSystems(saleDTO);
+        updateSystems(saleDTO, totalPrice);
+        return cashPayment.getChange();
     }
 
-    private void updateExternalSystems(SaleDTO saleDTO) {
+    private void updateSystems(SaleDTO saleDTO, float totalPrice) {
+        cashRegister.addCashInRegister(totalPrice);
         accountingRegistryHandler.updateAccountingRegistry(saleDTO);
         inventoryRegistryHandler.updateInventoryRegistry(saleDTO);
     }

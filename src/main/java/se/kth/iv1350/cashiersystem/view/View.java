@@ -30,14 +30,13 @@ public class View {
 
         addItem("abc123", 1);
         addItem("abc123", 1);
-
         addItem("def456", 1);
 
 
-        controller.endSale();
-        System.out.println("Sale End.");
+        System.out.println("Sale End:");
+        System.out.println("Total cost (incl VAT): " + controller.endSale().getRunningTotal() + " SEK");
 
-        controller.makePayment(100f);
+        controller.processPayment(100f);
     }
 
     private void addItem(String itemId, int quantity) {
@@ -47,16 +46,17 @@ public class View {
         System.out.println("Add " + quantity + " item(s) with item id " + itemId);
         System.out.println("Item ID: " + itemId);
         System.out.println("Item name: " + itemDTO.name());
-        System.out.println("Item cost: " + itemDTO.price());
+        System.out.println("Item cost: " + itemDTO.price() + " SEK");
         System.out.println("VAT: " + itemDTO.vatPercentage() + " %");
         System.out.println("Item description: " + itemDTO.description());
 
         System.out.println(" ");
 
-        System.out.println("Total cost (incl VAT): " + controller.getRunningTotal());
+        System.out.println("Total cost (incl VAT): " + controller.getRunningTotal() + " SEK");
 
-        String s = String.format(Locale.US, "Total VAT: %.2f%n", controller.getVatTotal());
+        String s = String.format(Locale.US, "Total VAT: %.2f SEK", controller.getVatTotal());
         System.out.println(s);
+        System.out.println(" ");
 
     }
 }

@@ -6,7 +6,6 @@ package se.kth.iv1350.cashiersystem.model;
  */
 public class CashPayment {
     private final float amountPaid;
-    private final float totalPrice;
     private float change;
 
     /**
@@ -19,15 +18,11 @@ public class CashPayment {
      */
     public CashPayment(float amountPaid, float totalPrice) {
         this.amountPaid = amountPaid;
-        this.totalPrice = totalPrice;
 
-        calculateChange();
+        calculateChange(totalPrice);
     }
-
-    /**
-     * Calculates the amount of change that the customer is receiving
-     */
-    public void calculateChange() {
+    
+    private void calculateChange(float totalPrice) {
         change = amountPaid - totalPrice;
     }
 
@@ -47,14 +42,5 @@ public class CashPayment {
      */
     public float getAmountPaid() {
         return amountPaid;
-    }
-
-    /**
-     * Gets the total price of the sale.
-     *
-     * @return The total price of the sale.
-     */
-    public float getTotalPrice() {
-        return totalPrice;
     }
 }

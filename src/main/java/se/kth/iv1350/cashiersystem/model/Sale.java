@@ -13,7 +13,7 @@ import java.util.Collection;
  */
 public class Sale {
     private final Collection<Item> itemsInCart = new ArrayList<>();
-    private CashPayment cashPayment;
+    private CashPayment cashPayment = null;
     private float runningTotal;
     private float vatTotal;
 
@@ -47,7 +47,7 @@ public class Sale {
      * @param itemId   The identification of the item.
      * @param quantity The quantity to add.
      */
-    public void updateQuantity(String itemId, int quantity) {
+    public void increaseQuantity(String itemId, int quantity) {
         Item item = findItemInCart(itemId);
         item.addQuantity(quantity);
         calculateRunningTotal();
@@ -122,11 +122,12 @@ public class Sale {
      *
      * @return The total price of the sale.
      */
-    public float endSale() {
-        return runningTotal;
+    public SaleDTO endSale() {
+        return toDTO();
     }
 
     /**
+     * TODO: JENNY HÄR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      * Converts the current sale to a {@link SaleDTO} object for data transfer.
      *
      * @return A {@link SaleDTO} containing the sale details.
@@ -134,6 +135,11 @@ public class Sale {
     public SaleDTO toDTO() {
         LocalDateTime dateTime = LocalDateTime.now();
         Collection<ItemInCartDTO> itemsInCartDTO = itemCollectionToDTO();
+
+        if (cashPayment == null) {
+            return new SaleDTO(dateTime, runningTotal, vatTotal, 0, 0, discount, itemsInCartDTO);
+        }
+
         return new SaleDTO(dateTime, runningTotal, vatTotal, cashPayment.getAmountPaid(), cashPayment.getChange(), discount, itemsInCartDTO);
     }
 
