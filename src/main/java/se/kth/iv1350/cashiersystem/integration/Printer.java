@@ -1,7 +1,7 @@
 package se.kth.iv1350.cashiersystem.integration;
 
+import se.kth.iv1350.cashiersystem.dto.ItemInCartDTO;
 import se.kth.iv1350.cashiersystem.dto.SaleDTO;
-import se.kth.iv1350.cashiersystem.model.Item;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -13,7 +13,7 @@ import java.util.Locale;
  */
 public class Printer {
 
-     /**
+    /**
      * Prints the receipt for the completed sale.
      * The receipt includes the date and time of the sale, item details, total price, total VAT, amount paid by the customer and the change returned.
      *
@@ -23,7 +23,7 @@ public class Printer {
         System.out.println("----------------- Begin receipt -----------------");
         printTimeOfSale(saleDTO.getDateTime());
         System.out.println("");
-        printItemsInCart(saleDTO.getItemsInCart());
+        printItemsInCart(saleDTO.getItemsInCartDTO());
         System.out.println("");
         printTotalPriceAndVat(saleDTO.getRunningTotal(), saleDTO.getVatTotal());
         System.out.println("");
@@ -38,11 +38,11 @@ public class Printer {
         System.out.println("Time of sale: " + dateTime);
     }
 
-    private void printItemsInCart(Collection<Item> itemsInCart) {
-        for (Item item : itemsInCart) {
-            String itemName = item.getName();
+    private void printItemsInCart(Collection<ItemInCartDTO> itemsInCartDTO) {
+        for (ItemInCartDTO item : itemsInCartDTO) {
+            String itemName = item.getItemDTO().getName();
             int itemQuantity = item.getQuantity();
-            float itemPrice = item.getPrice();
+            float itemPrice = item.getItemDTO().getPrice();
 
             StringBuilder sb = new StringBuilder();
             sb.append(itemName);

@@ -7,52 +7,52 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
-* Handles communication with the external inventory registry.
-*/
+ * Handles communication with the external inventory registry.
+ */
 public class InventoryRegistryHandler {
     private final Map<String, ItemDTO> itemCatalog = new HashMap<>();
 
     /**
-    * Creates a new instance of <code>InventoryRegistryHandler</code>.
-    * Populates the item catalog by fetching available items.
-    */
+     * Creates a new instance of <code>InventoryRegistryHandler</code>.
+     * Populates the item catalog by fetching available items.
+     */
     public InventoryRegistryHandler() {
         fetchItems();
     }
 
     /**
-    * Retrieves an item from the catalog using its item ID.
-    *
-    * @param itemId The identification of the item to fetch.
-    * @return The {@link itemDTO} corresponding to the ID, or <code>null</code>if the item does not exist.
-    */
+     * Retrieves an item from the catalog using its item ID.
+     *
+     * @param itemId The identification of the item to fetch.
+     * @return The {@link ItemDTO} corresponding to the ID, or <code>null</code>if the item does not exist.
+     */
     public ItemDTO fetchItemById(String itemId) {
         return itemCatalog.get(itemId);
     }
 
     /**
-    * Checks whether the given item ID exists in the inventory registry.
-    *
-    * @param itemId The identification of the item to check.
-    * @return <code>true</code> if the item exists, <code>false</code> otherwise.
-    */
+     * Checks whether the given item ID exists in the inventory registry.
+     *
+     * @param itemId The identification of the item to check.
+     * @return <code>true</code> if the item exists, <code>false</code> otherwise.
+     */
     public boolean isValidItemId(String itemId) {
         return fetchItemById(itemId) != null;
     }
 
     private void fetchItems() {
         itemCatalog.put("abc123", new ItemDTO("abc123", "BigWheel Oatmeal", 29.90f,
-                "BigWheel Oatmeal 500 g, whole grain oats, high fiber , gluten free", 6));
+                "BigWheel Oatmeal 500 g, whole grain oats, high fiber, gluten free", 6));
         itemCatalog.put("def456", new ItemDTO("def456", "YouGoGo Blueberry", 14.90f,
-                "YouGoGo Blueberry 240 g ,low sugar youghurt, blueberry flavour", 6));
+                "YouGoGo Blueberry 240 g, low sugar yogurt, blueberry flavour", 6));
     }
 
     /**
-    * Updates the external inventory registry with data from the completed sale.
-    *
-    * @param saleDTO The {@link SaleDTO} used for updating inventory.
-    */
+     * Updates the external inventory registry with data from the completed sale.
+     *
+     * @param saleDTO The {@link SaleDTO} used for updating inventory.
+     */
     public void updateInventoryRegistry(SaleDTO saleDTO) {
-       //unknown to the assignment what it does exactly with the sale data to update the accounting registry
+        //unknown to the assignment what it does exactly with the sale data to update the accounting registry
     }
 }

@@ -26,7 +26,7 @@ public class Controller {
      * Creates a new instance of <code>Controller</code>.
      *
      * @param registryCreator The creator of external registries.
-     * @param printer The <code>Printer</code> that prints the receipt.
+     * @param printer         The <code>Printer</code> that prints the receipt.
      */
     public Controller(RegistryCreator registryCreator, Printer printer) {
         this.printer = printer;
@@ -72,7 +72,7 @@ public class Controller {
             if (sale.isItemInSale(itemId)) {
                 sale.updateQuantity(itemId, quantity);
             } else {
-                ItemDTO itemDTO = getItemDTOfromId(itemId);
+                ItemDTO itemDTO = getItemDTOFromId(itemId);
                 Item item = itemDTO.toItem();
                 sale.addItem(item, quantity);
             }
@@ -121,7 +121,7 @@ public class Controller {
      * @param itemId The item identification.
      * @return Item details.
      */
-    public ItemDTO getItemDTOfromId(String itemId) {
+    public ItemDTO getItemDTOFromId(String itemId) {
         return inventoryRegistryHandler.fetchItemById(itemId);
     }
 }

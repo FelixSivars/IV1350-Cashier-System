@@ -17,4 +17,22 @@ public record ItemDTO(String id, String name, float price, String description, i
     public Item toItem() {
         return new Item(id, name, price, description, vatPercentage);
     }
+
+    /**
+     * Gets the name of the item.
+     *
+     * @return The name of the item.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Gets the price of the item.
+     *
+     * @return The price of the item.
+     */
+    public float getPrice() {
+        return price;
+    }
 }
