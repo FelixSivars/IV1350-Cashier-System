@@ -127,9 +127,8 @@ public class Sale {
     }
 
     /**
-     * TODO: JENNY HÄR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      * Converts the current sale to a {@link SaleDTO} object for data transfer.
-     *
+     * If no payment has been made yet, set amount paid and change to zero.
      * @return A {@link SaleDTO} containing the sale details.
      */
     public SaleDTO toDTO() {
