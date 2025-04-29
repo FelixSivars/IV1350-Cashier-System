@@ -89,13 +89,11 @@ public class Controller {
     }
 
     /**
-     * TODO: JENNY HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      * Processes the payment made by the customer.
-     * Creates a new instance of <code>CashPayment</code> and sets the amount to the amount paid by the customer,
-     * updates the <code>CashRegister</code>,
-     * creates a <code>SaleDTO</code> from <code>Sale</code>,
-     * <code>Printer</code> receives <code>SaleDTO</code> and prints it out,
-     * updates external systems with the data from <code>SaleDTO</code>.
+     * Creates a new instance of <@CashPayment> and sets the amount to the amount paid by the customer,
+     * creates a <@SaleDTO> from <@Sale>,
+     * <@Printer> receives <@SaleDTO> and prints it out,
+     * updates external/internal systems with the data from <@SaleDTO> and <code>totalPrice<code/>.
      *
      * @param amountPaid The amount of money paid by the customer.
      */
