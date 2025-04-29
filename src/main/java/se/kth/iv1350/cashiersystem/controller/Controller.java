@@ -90,10 +90,10 @@ public class Controller {
 
     /**
      * Processes the payment made by the customer.
-     * Creates a new instance of <@CashPayment> and sets the amount to the amount paid by the customer,
-     * creates a <@SaleDTO> from <@Sale>,
-     * <@Printer> receives <@SaleDTO> and prints it out,
-     * updates external/internal systems with the data from <@SaleDTO> and <code>totalPrice<code/>.
+     * Creates a new instance of <@link CashPayment> and sets the amount to the amount paid by the customer,
+     * creates a <@link SaleDTO> from <@link Sale>,
+     * <@link Printer> receives <code>SaleDTO<code/> and prints it out,
+     * updates external/internal systems with the data from <code>SaleDTO<code/> and <code>totalPrice<code/>.
      *
      * @param amountPaid The amount of money paid by the customer.
      */
