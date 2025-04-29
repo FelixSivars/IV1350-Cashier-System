@@ -8,18 +8,18 @@ package se.kth.iv1350.cashiersystem.dto;
 public record ItemInCartDTO(ItemDTO itemDTO, int quantity) {
     
     /**
-    * Gets <@ItemDTO> from the cart
+    * Gets <@link ItemDTO> from the cart
     *
-    * @return <@ItemDTO> from the cart
+    * @return <code>ItemDTO<code/> from the cart
     */
     public ItemDTO getItemDTO() {
         return itemDTO;
     }
 
     /**
-    * Gets quantity of the item from the cart
+    * Gets <code>quantity<code/> of the item from the cart
     *
-    * @return Quantity of the item in the cart
+    * @return <code>quantity<code/> of the item in the cart
     */
     public int getQuantity() {
         return quantity;
