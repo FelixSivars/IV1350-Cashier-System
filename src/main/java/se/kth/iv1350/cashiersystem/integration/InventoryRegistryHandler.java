@@ -21,6 +21,17 @@ public class InventoryRegistryHandler {
     }
 
     /**
+     * Creates a new instance of <code>InventoryRegistryHandler</code>.
+     * Populates the item catalog using its parameters. Used for test
+     * cases.
+     *
+     * @param itemDTO The item that should be in the item catalog.
+     */
+    public InventoryRegistryHandler(ItemDTO itemDTO) {
+        itemCatalog.put(itemDTO.id(), itemDTO);
+    }
+
+    /**
      * Retrieves an item from the catalog using its item ID.
      *
      * @param itemId The identification of the item to fetch.
@@ -53,6 +64,6 @@ public class InventoryRegistryHandler {
      * @param saleDTO The {@link SaleDTO} used for updating inventory.
      */
     public void updateInventoryRegistry(SaleDTO saleDTO) {
-         //TODO: unknown to the assignment how it updates
+        //TODO: unknown to the assignment how it updates
     }
 }

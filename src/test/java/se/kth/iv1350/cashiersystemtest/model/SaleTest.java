@@ -9,7 +9,7 @@ import se.kth.iv1350.cashiersystem.model.Sale;
 
 import java.util.Iterator;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SaleTest {
     private static Sale sale;
@@ -33,14 +33,12 @@ public class SaleTest {
     @Test
     public void testIsItemInSale() {
         sale.addItem(itemDTO1.toItem(), 1);
-        assertEquals(true, sale.isItemInSale("123"),
-                "Item should be in sale.");
+        assertTrue(sale.isItemInSale("123"), "Item should be in sale.");
     }
 
     @Test
     public void testIsItemNotInSale() {
-        assertEquals(false, sale.isItemInSale("123"),
-                "Item should not be in sale.");
+        assertFalse(sale.isItemInSale("123"), "Item should not be in sale.");
     }
 
     @Test

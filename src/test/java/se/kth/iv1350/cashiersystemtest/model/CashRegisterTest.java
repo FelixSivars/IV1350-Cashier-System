@@ -1,28 +1,14 @@
 package se.kth.iv1350.cashiersystemtest.model;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import se.kth.iv1350.cashiersystem.controller.Controller;
-import se.kth.iv1350.cashiersystem.integration.Printer;
-import se.kth.iv1350.cashiersystem.integration.RegistryCreator;
 import se.kth.iv1350.cashiersystem.model.CashRegister;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CashRegisterTest {
     private static CashRegister cashRegister;
-    private static RegistryCreator registryCreator;
-    private static Printer printer;
-    private static Controller controller;
-
-    @BeforeAll
-    public static void setUp() {
-        registryCreator = new RegistryCreator();
-        printer = new Printer();
-        controller = new Controller(registryCreator, printer);
-    }
 
     @BeforeEach
     public void createNewCashRegister() {

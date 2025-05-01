@@ -17,7 +17,7 @@ import se.kth.iv1350.cashiersystem.model.Sale;
  */
 public class Controller {
     private final Printer printer;
-    private final InventoryRegistryHandler inventoryRegistryHandler;
+    private InventoryRegistryHandler inventoryRegistryHandler;
     private final AccountingRegistryHandler accountingRegistryHandler;
     private final CashRegister cashRegister = new CashRegister();
     private Sale sale;
@@ -32,6 +32,16 @@ public class Controller {
         this.printer = printer;
         this.inventoryRegistryHandler = registryCreator.getInventoryRegistryHandler();
         this.accountingRegistryHandler = registryCreator.getAccountingRegistryHandler();
+    }
+
+    /**
+     * Sets the <code>InventoryRegistryHandler</code> for the controller.
+     * Used for test cases.
+     *
+     * @param inventoryRegistryHandler The InventoryRegistryHandler object containing an item catalog.
+     */
+    public void setInventoryRegistryHandler(InventoryRegistryHandler inventoryRegistryHandler) {
+        this.inventoryRegistryHandler = inventoryRegistryHandler;
     }
 
     /**
