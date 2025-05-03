@@ -10,7 +10,7 @@ import se.kth.iv1350.cashiersystem.model.Item;
 public record ItemDTO(String id, String name, float price, String description, int vatPercentage) {
 
     /**
-     * Converts this <code>ItemDTO</code> to an <code>Item</code>.
+     * Converts this <code>ItemDTO</code> to an {@link Item}.
      *
      * @return A new {@link Item} object containing the same data as this DTO.
      */
