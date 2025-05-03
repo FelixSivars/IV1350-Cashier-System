@@ -5,7 +5,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import se.kth.iv1350.cashiersystem.dto.ItemDTO;
 import se.kth.iv1350.cashiersystem.dto.ItemInCartDTO;
+import se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler;
+import se.kth.iv1350.cashiersystem.integration.Printer;
+import se.kth.iv1350.cashiersystem.integration.RegistryCreator;
 import se.kth.iv1350.cashiersystem.model.Sale;
+import se.kth.iv1350.cashiersystem.controller.Controller;
 
 import java.util.Iterator;
 
@@ -85,6 +89,28 @@ public class SaleTest {
         assertEquals(itemDTO1.getPrice() + itemDTO2.getPrice(), sale.getRunningTotal(),
                 "The total price should be equal to the items added.");
 
+    }
+
+    @Test
+    public void testVatCalculation() {
+        // Create a new controller with a known VAT rate
+        RegistryCreator registryCreator = new RegistryCreator();
+        Printer printer = new Printer();
+        Controller testController = new Controller(registryCreator, printer);
+        
+        // Create an item with a known price and VAT rate (25%)
+        ItemDTO itemDTO = new ItemDTO("test", "Test Item", 100.0f, "Description", 25);
+        InventoryRegistryHandler inventoryHandler = new InventoryRegistryHandler(itemDTO);
+        testController.setInventoryRegistryHandler(inventoryHandler);
+        
+        // Start a sale and scan the item
+        testController.startSale();
+        testController.scanItem("test", 1);
+        
+        // Expected VAT is 25% of 100.0 = 25.0
+        float expectedVat = 25.0f;
+        assertEquals(expectedVat, testController.getVatTotal(), 0.001f,
+                "VAT should be calculated correctly based on the item's VAT rate");
     }
 }
 
