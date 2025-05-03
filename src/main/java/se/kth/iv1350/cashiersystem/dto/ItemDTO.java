@@ -18,31 +18,12 @@ public record ItemDTO(String id, String name, float price, String description, i
         return new Item(id, name, price, description, vatPercentage);
     }
 
-    /**
-     * Gets the name of the item.
-     *
-     * @return The name of the item.
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Gets the price of the item.
-     *
-     * @return The price of the item.
-     */
-    public float getPrice() {
-        return price;
-    }
-
+    @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Item ID: " + id + "\n");
-        builder.append("Item name: " + name + "\n");
-        builder.append("Item cost: " + price + " SEK \n");
-        builder.append("VAT: " + vatPercentage + " % \n");
-        builder.append("Item description: " + description);
-        return builder.toString();
+        return "Item ID: " + id + "\n" +
+                "Item name: " + name + "\n" +
+                "Item cost: " + price + " SEK \n" +
+                "VAT: " + vatPercentage + " % \n" +
+                "Item description: " + description;
     }
 }

@@ -21,13 +21,13 @@ public class Printer {
      */
     public void printReceipt(SaleDTO saleDTO) {
         System.out.println("----------------- Begin receipt -----------------");
-        printTimeOfSale(saleDTO.getDateTime());
+        printTimeOfSale(saleDTO.dateTime());
         System.out.println("");
-        printItemsInCart(saleDTO.getItemsInCartDTO());
+        printItemsInCart(saleDTO.itemsInCartDTO());
         System.out.println("");
-        printTotalPriceAndVat(saleDTO.getRunningTotal(), saleDTO.getVatTotal());
+        printTotalPriceAndVat(saleDTO.runningTotal(), saleDTO.vatTotal());
         System.out.println("");
-        printAmountPaidAndChange(saleDTO.getAmountPaid(), saleDTO.getChange());
+        printAmountPaidAndChange(saleDTO.amountPaid(), saleDTO.change());
         System.out.println("------------------ End receipt ------------------");
 
     }
@@ -40,33 +40,23 @@ public class Printer {
 
     private void printItemsInCart(Collection<ItemInCartDTO> itemsInCartDTO) {
         for (ItemInCartDTO item : itemsInCartDTO) {
-            String itemName = item.getItemDTO().getName();
-            int itemQuantity = item.getQuantity();
-            float itemPrice = item.getItemDTO().getPrice();
+            String itemName = item.itemDTO().name();
+            int itemQuantity = item.quantity();
+            float itemPrice = item.itemDTO().price();
 
-            StringBuilder sb = new StringBuilder();
-            sb.append(itemName);
-            sb.append(" \t\t\t");
-            sb.append(itemQuantity);
-            sb.append(" x ");
-            sb.append(itemPrice);
-            sb.append(" \t");
-            sb.append(itemQuantity * itemPrice);
-            sb.append(" SEK");
-            System.out.println(sb.toString());
+            String itemInCartLine = itemName + " \t\t\t" + itemQuantity + " x " +
+                    itemPrice + " \t" + itemQuantity * itemPrice + " SEK";
+            System.out.println(itemInCartLine);
         }
     }
 
     private void printTotalPriceAndVat(float runningTotal, float vat) {
         System.out.println("Total: \t\t\t\t\t\t\t\t\t" + runningTotal + " SEK");
-        String s = String.format(Locale.US, "VAT: \t\t\t\t\t\t\t\t\t%.2f SEK", vat);
-        System.out.println(s);
+        System.out.printf(Locale.US, "VAT: \t\t\t\t\t\t\t\t\t%.2f SEK\n", vat);
     }
 
     private void printAmountPaidAndChange(float amountPaid, float change) {
         System.out.println("Cash: \t\t\t\t\t\t\t\t\t" + amountPaid + " SEK");
-        String s = String.format(Locale.US, "Change: \t\t\t\t\t\t\t\t%.2f SEK", change);
-        System.out.println(s);
-
+        System.out.printf(Locale.US, "Change: \t\t\t\t\t\t\t\t%.2f SEK \n", change);
     }
 }

@@ -41,9 +41,9 @@ public class ControllerTest {
         controller.scanItem("123", 1);
         SaleDTO saleDTO = controller.getSaleDTO();
 
-        Iterator<ItemInCartDTO> it = saleDTO.getItemsInCartDTO().iterator();
+        Iterator<ItemInCartDTO> it = saleDTO.itemsInCartDTO().iterator();
 
-        assertEquals("123", it.next().getItemDTO().id(),
+        assertEquals("123", it.next().itemDTO().id(),
                 "Item identifier should match the scanned item");
     }
 
@@ -52,27 +52,27 @@ public class ControllerTest {
         // Scan the same item twice
         controller.scanItem("123", 1);
         controller.scanItem("123", 1);
-        
+
         SaleDTO saleDTO = controller.getSaleDTO();
-        Collection<ItemInCartDTO> itemsInCart = saleDTO.getItemsInCartDTO();
-        
+        Collection<ItemInCartDTO> itemsInCart = saleDTO.itemsInCartDTO();
+
         // Should still have only one unique item
         assertEquals(1, itemsInCart.size(), "Should have exactly one unique item in cart");
-        
+
         // Item quantity should be 2
         ItemInCartDTO itemInCart = itemsInCart.iterator().next();
-        assertEquals(2, itemInCart.getQuantity(), "Item quantity should be 2");
+        assertEquals(2, itemInCart.quantity(), "Item quantity should be 2");
     }
 
     @Test
     public void testScanInvalidItem() {
         // Try to scan an item with an ID that doesn't exist in inventory
         controller.scanItem("nonexistent", 1);
-        
+
         // Get sale information
         SaleDTO saleDTO = controller.getSaleDTO();
-        Collection<ItemInCartDTO> itemsInCart = saleDTO.getItemsInCartDTO();
-        
+        Collection<ItemInCartDTO> itemsInCart = saleDTO.itemsInCartDTO();
+
         // Verify that no item was added
         assertEquals(0, itemsInCart.size(), "No item should be added when scanning invalid ID");
     }

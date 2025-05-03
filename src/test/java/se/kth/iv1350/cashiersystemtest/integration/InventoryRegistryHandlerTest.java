@@ -9,13 +9,11 @@ import se.kth.iv1350.cashiersystem.dto.ItemInCartDTO;
 import se.kth.iv1350.cashiersystem.dto.SaleDTO;
 import se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class InventoryRegistryHandlerTest {
     private static InventoryRegistryHandler inventoryRegistryHandler;
@@ -39,7 +37,7 @@ public class InventoryRegistryHandlerTest {
     @Test
     public void testFetchItemById() {
         ItemDTO itemDTO = inventoryRegistryHandler.fetchItemById("123");
-        assertEquals("Bobs Hallonsylt", itemDTO.getName(),
+        assertEquals("Bobs Hallonsylt", itemDTO.name(),
                 "Fetched itemDTO's name should match the expected");
     }
 
@@ -52,12 +50,12 @@ public class InventoryRegistryHandlerTest {
     @Test
     public void testUpdateInventoryRegistry() {
         InventoryRegistryHandler inventoryHandler = new InventoryRegistryHandler();
-        
+
         // Create a test SaleDTO
         Collection<ItemInCartDTO> items = new ArrayList<>();
         ItemDTO itemDTO = new ItemDTO("123", "Test Item", 10.0f, "Test Description", 25);
         items.add(new ItemInCartDTO(itemDTO, 2));
-        
+
         SaleDTO saleDTO = new SaleDTO(
                 LocalDateTime.now(),
                 20.0f,   // runningTotal
@@ -67,7 +65,7 @@ public class InventoryRegistryHandlerTest {
                 0.0f,    // discount
                 items    // itemsInCartDTO
         );
-        
+
         // Verify that no exception is thrown when updating
         assertDoesNotThrow(() -> inventoryHandler.updateInventoryRegistry(saleDTO),
                 "Should not throw exception when updating inventory registry");

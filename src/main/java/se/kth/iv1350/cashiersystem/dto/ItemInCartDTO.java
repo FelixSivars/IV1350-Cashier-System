@@ -6,22 +6,4 @@ package se.kth.iv1350.cashiersystem.dto;
  * It includes details about {@link ItemDTO} and the quantity
  */
 public record ItemInCartDTO(ItemDTO itemDTO, int quantity) {
-    
-    /**
-    * Gets {@link ItemDTO} from the cart
-    *
-    * @return {@link ItemDTO} from the cart
-    */
-    public ItemDTO getItemDTO() {
-        return itemDTO;
-    }
-
-    /**
-    * Gets quantity of the item from the cart
-    *
-    * @return the number of units of the item
-    */
-    public int getQuantity() {
-        return quantity;
-    }
 }

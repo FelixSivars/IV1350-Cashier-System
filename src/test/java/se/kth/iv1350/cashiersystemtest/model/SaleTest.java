@@ -50,8 +50,8 @@ public class SaleTest {
         sale.addItem(itemDTO.toItem(), 1);
         sale.increaseQuantity("123", 2);
 
-        Iterator<ItemInCartDTO> it = sale.toDTO().getItemsInCartDTO().iterator();
-        assertEquals(3, it.next().getQuantity(),
+        Iterator<ItemInCartDTO> it = sale.toDTO().itemsInCartDTO().iterator();
+        assertEquals(3, it.next().quantity(),
                 "Quantity should be increased, expected 3.");
     }
 
@@ -59,8 +59,8 @@ public class SaleTest {
     public void testAddItem() {
         sale.addItem(itemDTO.toItem(), 1);
 
-        Iterator<ItemInCartDTO> it = sale.toDTO().getItemsInCartDTO().iterator();
-        assertEquals(itemDTO, it.next().getItemDTO(),
+        Iterator<ItemInCartDTO> it = sale.toDTO().itemsInCartDTO().iterator();
+        assertEquals(itemDTO, it.next().itemDTO(),
                 "Item should be added in sale.");
     }
 
@@ -77,8 +77,8 @@ public class SaleTest {
     public void testGetSaleDTO() {
         sale.addItem(itemDTO.toItem(), 1);
 
-        Iterator<ItemInCartDTO> it = sale.toDTO().getItemsInCartDTO().iterator();
-        assertEquals(itemDTO.getName(), it.next().getItemDTO().getName(),
+        Iterator<ItemInCartDTO> it = sale.toDTO().itemsInCartDTO().iterator();
+        assertEquals(itemDTO.name(), it.next().itemDTO().name(),
                 "Item name in DTO should match the added item name.");
     }
 
@@ -86,7 +86,7 @@ public class SaleTest {
     public void testUpdateRunningTotal() {
         sale.addItem(itemDTO.toItem(), 1);
         sale.addItem(anotherItemDTO.toItem(), 1);
-        assertEquals(itemDTO.getPrice() + anotherItemDTO.getPrice(), sale.getRunningTotal(),
+        assertEquals(itemDTO.price() + anotherItemDTO.price(), sale.getRunningTotal(),
                 "The total price should be equal to the items added.");
 
     }

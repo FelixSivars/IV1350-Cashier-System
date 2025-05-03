@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8cda32f3-3aae-4f9f-bd56-078df4042dd1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/ItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/ItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/ItemInCartDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/ItemInCartDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/SaleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/SaleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/Printer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/controller/ControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/integration/InventoryRegistryHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/integration/InventoryRegistryHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/model/SaleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/model/SaleTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +50,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "JUnit.All in cashiersystem.executor": "Run",
+    "JUnit.All in cashiersystem.executor": "Coverage",
     "JUnit.ControllerTest.executor": "Run",
     "JUnit.ControllerTest.testMakePayment.executor": "Debug",
     "JUnit.HelloWorldTest.executor": "Run",
@@ -62,7 +66,7 @@
     "settings.editor.selected.configurable": "editor.stickyLines"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in cashiersystem">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.kth.iv1350.cashiersystem.startup.Main" />
       <module name="cashiersystem" />
@@ -100,8 +104,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in cashiersystem" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.se.kth.iv1350.cashiersystemtest in cashiersystem" />
       </list>
     </recent_temporary>
@@ -116,5 +120,8 @@
       <updated>1745311329641</updated>
     </task>
     <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/IV1350_Cashier_System$All_in_cashiersystem.ic" NAME="All in cashiersystem Coverage Results" MODIFIED="1746298435516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
