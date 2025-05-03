@@ -106,6 +106,7 @@ public class Controller {
      * updates external/internal systems with the data from {@link SaleDTO} and <code>totalPrice</code>.
      *
      * @param amountPaid The amount of money paid by the customer.
+     * @return The amount of change to give back to the customer.
      */
     public float processPayment(float amountPaid) {
         float totalPrice = sale.getRunningTotal();
@@ -138,7 +139,7 @@ public class Controller {
     /**
      * Gets the current sale details as a DTO.
      * This method is primarily intended for testing purposes.
-     * 
+     *
      * @return The current sale as a {@link SaleDTO} object.
      */
     public SaleDTO getSaleDTO() {
