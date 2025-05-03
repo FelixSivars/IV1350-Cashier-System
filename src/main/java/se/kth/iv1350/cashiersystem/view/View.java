@@ -14,7 +14,7 @@ public class View {
     /**
      * Constructs a new <code>View</code> object.
      *
-     * @param controller The <code>Controller</code> that manages the system operations.
+     * @param controller The {@link Controller} that manages the system operations.
      */
     public View(Controller controller) {
         this.controller = controller;
