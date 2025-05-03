@@ -3,7 +3,7 @@ package se.kth.iv1350.cashiersystem.dto;
 /**
  * DTO for items in cart
  * This class is used to transfer item data between the integration layer and the model layer.
- * It includes details about {@link ItemDTO} and the <code>quantity<code/> 
+ * It includes details about {@link ItemDTO} and the quantity
  */
 public record ItemInCartDTO(ItemDTO itemDTO, int quantity) {
     
@@ -17,9 +17,9 @@ public record ItemInCartDTO(ItemDTO itemDTO, int quantity) {
     }
 
     /**
-    * Gets <code>quantity<code/> of the item from the cart
+    * Gets quantity of the item from the cart
     *
-    * @return <code>quantity<code/> of the item in the cart
+    * @return the number of units of the item
     */
     public int getQuantity() {
         return quantity;
