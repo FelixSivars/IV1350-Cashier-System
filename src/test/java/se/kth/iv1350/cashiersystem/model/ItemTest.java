@@ -1,10 +1,9 @@
-package se.kth.iv1350.cashiersystemtest.model;
+package se.kth.iv1350.cashiersystem.model;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import se.kth.iv1350.cashiersystem.dto.ItemDTO;
-import se.kth.iv1350.cashiersystem.model.Item;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

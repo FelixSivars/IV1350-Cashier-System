@@ -1,4 +1,4 @@
-package se.kth.iv1350.cashiersystemtest.model;
+package se.kth.iv1350.cashiersystem.model;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,7 +9,6 @@ import se.kth.iv1350.cashiersystem.dto.ItemInCartDTO;
 import se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler;
 import se.kth.iv1350.cashiersystem.integration.Printer;
 import se.kth.iv1350.cashiersystem.integration.RegistryCreator;
-import se.kth.iv1350.cashiersystem.model.Sale;
 
 import java.util.Iterator;
 

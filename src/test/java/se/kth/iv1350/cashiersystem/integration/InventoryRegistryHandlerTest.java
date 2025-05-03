@@ -1,4 +1,4 @@
-package se.kth.iv1350.cashiersystemtest.integration;
+package se.kth.iv1350.cashiersystem.integration;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import se.kth.iv1350.cashiersystem.dto.ItemDTO;
 import se.kth.iv1350.cashiersystem.dto.ItemInCartDTO;
 import se.kth.iv1350.cashiersystem.dto.SaleDTO;
-import se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
