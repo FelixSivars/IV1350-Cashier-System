@@ -103,7 +103,7 @@ public class Controller {
      * Creates a new instance of {@link CashPayment} and sets the amount to the amount paid by the customer,
      * creates a {@link SaleDTO} from {@link Sale},
      * {@link Printer} receives {@link SaleDTO} and prints it out,
-     * updates external/internal systems with the data from {@link SaleDTO} and <code>totalPrice<code/>.
+     * updates external/internal systems with the data from {@link SaleDTO} and <code>totalPrice</code>.
      *
      * @param amountPaid The amount of money paid by the customer.
      */
