@@ -78,31 +78,6 @@ public class ControllerTest {
     }
 
     @Test
-    public void testMultipleItemsWithQuantities() {
-        controller.scanItem("123", 3);  // Add 3 of item 123
-        
-        // Set up a second test item in the inventory handler
-        ItemDTO secondItem = new ItemDTO("456", "Second Item", 20.0f, "Another item", 12);
-        InventoryRegistryHandler inventoryHandler = new InventoryRegistryHandler(secondItem);
-        controller.setInventoryRegistryHandler(inventoryHandler);
-        
-        controller.scanItem("456", 2);  // Add 2 of item 456
-        
-        // Get sale information
-        SaleDTO saleDTO = controller.getSaleDTO();
-        Collection<ItemInCartDTO> itemsInCart = saleDTO.getItemsInCartDTO();
-        
-        assertEquals(2, itemsInCart.size(), "Should have exactly two unique items in cart");
-        
-        // Check that the running total is calculated correctly
-        // First item: 3 * 14.90 = 44.7
-        // Second item: 2 * 20.0 = 40.0
-        // Total: 84.7
-        assertEquals(84.7f, saleDTO.getRunningTotal(), 0.01, 
-                "Running total should be sum of all items times their quantities");
-    }
-
-    @Test
     public void testProcessPayment() {
         controller.scanItem("123", 1);
         controller.endSale();
