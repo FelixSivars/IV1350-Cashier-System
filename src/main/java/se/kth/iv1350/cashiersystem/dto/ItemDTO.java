@@ -35,4 +35,14 @@ public record ItemDTO(String id, String name, float price, String description, i
     public float getPrice() {
         return price;
     }
+
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Item ID: " + id + "\n");
+        builder.append("Item name: " + name + "\n");
+        builder.append("Item cost: " + price + " SEK \n");
+        builder.append("VAT: " + vatPercentage + " % \n");
+        builder.append("Item description: " + description);
+        return builder.toString();
+    }
 }

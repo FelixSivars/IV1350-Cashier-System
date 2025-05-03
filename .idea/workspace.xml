@@ -7,12 +7,8 @@
     <list default="true" id="8cda32f3-3aae-4f9f-bd56-078df4042dd1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/SaleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/SaleDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/CashRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/CashRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/model/Sale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/ItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/dto/ItemDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/model/SaleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/model/SaleTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,14 +55,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Seminar3",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Felix Sivars/Documents/GitHub/IV1350-Cashier-System",
     "onboarding.tips.debug.path": "Z:/Documents/Programmering/cashiersystem/src/main/java/se/kth/iv1350/Main.java",
     "settings.editor.selected.configurable": "editor.stickyLines"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.All in cashiersystem">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.kth.iv1350.cashiersystem.startup.Main" />
       <module name="cashiersystem" />
@@ -104,8 +100,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in cashiersystem" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in cashiersystem" />
         <item itemvalue="JUnit.se.kth.iv1350.cashiersystemtest in cashiersystem" />
       </list>
     </recent_temporary>

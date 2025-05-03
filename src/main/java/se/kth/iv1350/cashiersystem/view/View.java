@@ -1,7 +1,6 @@
 package se.kth.iv1350.cashiersystem.view;
 
 import se.kth.iv1350.cashiersystem.controller.Controller;
-import se.kth.iv1350.cashiersystem.dto.ItemDTO;
 
 import java.util.Locale;
 
@@ -12,7 +11,7 @@ public class View {
     static final float AMOUNT_PAID = 100f;
 
     private Controller controller;
-    
+
     /**
      * Constructs a new <code>View</code> object.
      *
@@ -28,7 +27,7 @@ public class View {
     public void simulationRun() {
         controller.startSale();
         System.out.println("A new sale has been started.");
-        System.out.println("");
+        System.out.println(" ");
 
         addItem("abc123", 1);
         addItem("abc123", 1);
@@ -39,27 +38,16 @@ public class View {
         System.out.println("Total cost (incl VAT): " + controller.endSale() + " SEK");
 
         float change = controller.processPayment(AMOUNT_PAID);
-        System.out.println(String.format(Locale.US, "Change to give to customer: %.2f SEK", change));
+        System.out.printf(Locale.US, "Change to give to customer: %.2f SEK%n", change);
     }
 
     private void addItem(String itemId, int quantity) {
-        controller.scanItem(itemId, quantity);
-        ItemDTO itemDTO = controller.getItemDTOFromId(itemId);
-
         System.out.println("Add " + quantity + " item(s) with item id " + itemId);
-        System.out.println("Item ID: " + itemId);
-        System.out.println("Item name: " + itemDTO.name());
-        System.out.println("Item cost: " + itemDTO.price() + " SEK");
-        System.out.println("VAT: " + itemDTO.vatPercentage() + " %");
-        System.out.println("Item description: " + itemDTO.description());
-
+        System.out.println(controller.scanItem(itemId, quantity));
         System.out.println(" ");
 
         System.out.println("Total cost (incl VAT): " + controller.getRunningTotal() + " SEK");
-
-        String s = String.format(Locale.US, "Total VAT: %.2f SEK", controller.getVatTotal());
-        System.out.println(s);
+        System.out.printf(Locale.US, "Total VAT: %.2f SEK%n", controller.getVatTotal());
         System.out.println(" ");
-
     }
 }

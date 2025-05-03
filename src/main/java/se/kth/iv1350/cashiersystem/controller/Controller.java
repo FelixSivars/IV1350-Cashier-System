@@ -77,16 +77,19 @@ public class Controller {
      * @param itemId   The identifier of the item being scanned.
      * @param quantity The number of units of the item being scanned.
      */
-    public void scanItem(String itemId, int quantity) {
-        if (inventoryRegistryHandler.isValidItemId(itemId)) {
-            if (sale.isItemInSale(itemId)) {
-                sale.increaseQuantity(itemId, quantity);
-            } else {
-                ItemDTO itemDTO = getItemDTOFromId(itemId);
-                Item item = itemDTO.toItem();
-                sale.addItem(item, quantity);
-            }
+    public ItemDTO scanItem(String itemId, int quantity) {
+        if (!inventoryRegistryHandler.isValidItemId(itemId)) {
+            return null;
         }
+        ItemDTO itemDTO = getItemDTOFromId(itemId);
+
+        if (sale.isItemInSale(itemId)) {
+            sale.increaseQuantity(itemId, quantity);
+        } else {
+            Item item = itemDTO.toItem();
+            sale.addItem(item, quantity);
+        }
+        return itemDTO;
     }
 
     /**
