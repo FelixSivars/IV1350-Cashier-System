@@ -64,6 +64,6 @@ public class InventoryRegistryHandler {
      * @param saleDTO The {@link SaleDTO} used for updating inventory.
      */
     public void updateInventoryRegistry(SaleDTO saleDTO) {
-        //TODO: unknown to the assignment how it updates
+        //TODO: updates external inventory registry
     }
 }
