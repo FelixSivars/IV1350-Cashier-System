@@ -37,7 +37,7 @@ public class View {
         System.out.println("Total cost (incl VAT): " + controller.endSale() + " SEK");
 
         float change = controller.processPayment(100f);
-        System.out.println(String.format("Change to give to customer: %.2f SEK", change));
+        System.out.println(String.format(Locale.US, "Change to give to customer: %.2f SEK", change));
     }
 
     private void addItem(String itemId, int quantity) {

@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8cda32f3-3aae-4f9f-bd56-078df4042dd1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/InventoryRegistryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/integration/InventoryRegistryHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/controller/ControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/integration/InventoryRegistryHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/integration/InventoryRegistryHandlerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/model/CashRegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/model/CashRegisterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/model/SaleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/kth/iv1350/cashiersystemtest/model/SaleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/kth/iv1350/cashiersystem/view/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
