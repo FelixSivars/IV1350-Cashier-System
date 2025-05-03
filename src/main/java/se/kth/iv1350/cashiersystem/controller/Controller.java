@@ -26,7 +26,7 @@ public class Controller {
      * Creates a new instance of <code>Controller</code>.
      *
      * @param registryCreator The creator of external registries.
-     * @param printer         The <code>Printer</code> that prints the receipt.
+     * @param printer         The {@link Printer} that prints the receipt.
      */
     public Controller(RegistryCreator registryCreator, Printer printer) {
         this.printer = printer;
@@ -35,10 +35,10 @@ public class Controller {
     }
 
     /**
-     * Sets the <code>InventoryRegistryHandler</code> for the controller.
+     * Sets the {@link InventoryRegistryHandler} for the controller.
      * Used for test cases.
      *
-     * @param inventoryRegistryHandler The InventoryRegistryHandler object containing an item catalog.
+     * @param inventoryRegistryHandler The {@link InventoryRegistryHandler} object containing an item catalog.
      */
     public void setInventoryRegistryHandler(InventoryRegistryHandler inventoryRegistryHandler) {
         this.inventoryRegistryHandler = inventoryRegistryHandler;
@@ -100,10 +100,10 @@ public class Controller {
 
     /**
      * Processes the payment made by the customer.
-     * Creates a new instance of <@link CashPayment> and sets the amount to the amount paid by the customer,
-     * creates a <@link SaleDTO> from <@link Sale>,
-     * <@link Printer> receives <code>SaleDTO<code/> and prints it out,
-     * updates external/internal systems with the data from <code>SaleDTO<code/> and <code>totalPrice<code/>.
+     * Creates a new instance of {@link CashPayment} and sets the amount to the amount paid by the customer,
+     * creates a {@link SaleDTO} from {@link Sale},
+     * {@link Printer} receives {@link SaleDTO} and prints it out,
+     * updates external/internal systems with the data from {@link SaleDTO} and <code>totalPrice<code/>.
      *
      * @param amountPaid The amount of money paid by the customer.
      */
@@ -139,7 +139,7 @@ public class Controller {
      * Gets the current sale details as a DTO.
      * This method is primarily intended for testing purposes.
      * 
-     * @return The current sale as a SaleDTO object.
+     * @return The current sale as a {@link SaleDTO} object.
      */
     public SaleDTO getSaleDTO() {
         return sale.toDTO();
