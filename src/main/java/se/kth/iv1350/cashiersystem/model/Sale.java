@@ -34,7 +34,7 @@ public class Sale {
     /**
      * Sets the cash payment for the sale.
      *
-     * @param cashPayment The <code>CashPayment</code> object containing payment details.
+     * @param cashPayment The {@link CashPayment} object containing payment details.
      */
     public void setCashPayment(CashPayment cashPayment) {
         this.cashPayment = cashPayment;
@@ -68,8 +68,8 @@ public class Sale {
      * Adds a new item to the sale.
      * Updates the running total and the total VAT after adding.
      *
-     * @param item     The <code>Item</code> to add.
-     * @param quantity The <code>quantity</code> of the item to add which is default 1.
+     * @param item     The {@link Item} to add.
+     * @param quantity The quantity of the item to add which is default 1.
      */
     public void addItem(Item item, int quantity) {
         item.setQuantity(quantity);
