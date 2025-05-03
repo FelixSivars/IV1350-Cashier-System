@@ -1,4 +1,4 @@
-package se.kth.iv1350.cashiersystemtest.controller;
+package se.kth.iv1350.cashiersystemtest.integration;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
