@@ -34,7 +34,7 @@ public class View {
 
 
         System.out.println("Sale End:");
-        System.out.println("Total cost (incl VAT): " + controller.endSale().getRunningTotal() + " SEK");
+        System.out.println("Total cost (incl VAT): " + controller.endSale() + " SEK");
 
         controller.processPayment(100f);
     }

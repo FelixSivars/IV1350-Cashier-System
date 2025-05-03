@@ -94,8 +94,8 @@ public class Controller {
      *
      * @return The total price of the sale including VAT.
      */
-    public SaleDTO endSale() {
-        return sale.toDTO();
+    public float endSale() {
+        return sale.toDTO().getRunningTotal();
     }
 
     /**
@@ -133,6 +133,16 @@ public class Controller {
      */
     public ItemDTO getItemDTOFromId(String itemId) {
         return inventoryRegistryHandler.fetchItemById(itemId);
+    }
+
+    /**
+     * Gets the current sale details as a DTO.
+     * This method is primarily intended for testing purposes.
+     * 
+     * @return The current sale as a SaleDTO object.
+     */
+    public SaleDTO getSaleDTO() {
+        return sale.toDTO();
     }
 }
 

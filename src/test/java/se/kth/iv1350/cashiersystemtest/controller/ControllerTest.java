@@ -38,7 +38,7 @@ public class ControllerTest {
     @Test
     public void testScanItem() {
         controller.scanItem("123", 1);
-        SaleDTO saleDTO = controller.endSale();
+        SaleDTO saleDTO = controller.getSaleDTO();
 
         Iterator<ItemInCartDTO> it = saleDTO.getItemsInCartDTO().iterator();
 
