@@ -66,9 +66,9 @@ public record SaleDTO(LocalDateTime dateTime, float runningTotal, float vatTotal
     }
 
     /**
-     * Gets the collection of {@link ItemsInCartDTO} included in the sale.
+     * Gets the collection of {@link ItemInCartDTO} included in the sale.
      *
-     * @return A collection of {@link ItemsInCartDTO} objects in the cart.
+     * @return A collection of {@link ItemInCartDTO} objects in the cart.
      */
     public Collection<ItemInCartDTO> getItemsInCartDTO() {
         return itemsInCartDTO;

@@ -5,7 +5,7 @@ package se.kth.iv1350.cashiersystem.model;
  * Initial balance is set to 0.
  */
 public class CashRegister {
-    private float cashInRegister = 0;
+    private float cashInRegister = 0f;
 
     /**
      * Constructor for the <code>CashRegister</code> class.

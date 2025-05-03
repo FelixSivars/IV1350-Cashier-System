@@ -12,6 +12,8 @@ import java.util.Collection;
  * Represents an ongoing sale process.
  */
 public class Sale {
+    static final float PERCENTAGE_TO_DECIMAL = 0.01f;
+
     private final Collection<Item> itemsInCart = new ArrayList<>();
     private CashPayment cashPayment = null;
     private float runningTotal;
@@ -69,7 +71,7 @@ public class Sale {
      * Updates the running total and the total VAT after adding.
      *
      * @param item     The {@link Item} to add.
-     * @param quantity The quantity of the item to add which is default 1.
+     * @param quantity The quantity of the item to add.
      */
     public void addItem(Item item, int quantity) {
         item.setQuantity(quantity);
@@ -106,15 +108,14 @@ public class Sale {
     private void calculateVatTotal() {
         vatTotal = 0f;
         for (Item item : itemsInCart) {
-            vatTotal += calculateVat(item) * item.getQuantity();
+            vatTotal += calculateVatPerItem(item) * item.getQuantity();
         }
     }
 
-    //PER ITEM
-    private float calculateVat(Item item) {
+    private float calculateVatPerItem(Item item) {
         float price = item.getPrice();
         int vatPercentage = item.getVatPercentage();
-        return price * ((float) vatPercentage / 100);
+        return price * ((float) vatPercentage * PERCENTAGE_TO_DECIMAL);
     }
 
     /**
@@ -122,13 +123,14 @@ public class Sale {
      *
      * @return The total price of the sale.
      */
-    public SaleDTO endSale() {
-        return toDTO();
+    public float endSale() {
+        return runningTotal;
     }
 
     /**
      * Converts the current sale to a {@link SaleDTO} object for data transfer.
      * If no payment has been made yet, set amount paid and change to zero.
+     *
      * @return A {@link SaleDTO} containing the sale details.
      */
     public SaleDTO toDTO() {

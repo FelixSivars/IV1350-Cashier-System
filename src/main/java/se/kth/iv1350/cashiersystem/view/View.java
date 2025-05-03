@@ -9,8 +9,10 @@ import java.util.Locale;
  * This is a hardcoded simulation of the user interface.
  */
 public class View {
-    private Controller controller;
+    static final float AMOUNT_PAID = 100f;
 
+    private Controller controller;
+    
     /**
      * Constructs a new <code>View</code> object.
      *
@@ -36,7 +38,7 @@ public class View {
         System.out.println("Sale End:");
         System.out.println("Total cost (incl VAT): " + controller.endSale() + " SEK");
 
-        float change = controller.processPayment(100f);
+        float change = controller.processPayment(AMOUNT_PAID);
         System.out.println(String.format(Locale.US, "Change to give to customer: %.2f SEK", change));
     }
 

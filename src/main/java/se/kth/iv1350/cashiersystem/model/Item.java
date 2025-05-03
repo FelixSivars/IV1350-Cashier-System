@@ -89,6 +89,11 @@ public class Item {
         this.quantity += quantity;
     }
 
+    /**
+     * Converts the current item to a {@link ItemDTO} object for data transfer.
+     *
+     * @return A {@link ItemDTO} containing the item details.
+     */
     public ItemDTO toDTO() {
         return new ItemDTO(id, name, price, description, vatPercentage);
     }

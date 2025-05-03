@@ -95,7 +95,7 @@ public class Controller {
      * @return The total price of the sale including VAT.
      */
     public float endSale() {
-        return sale.toDTO().getRunningTotal();
+        return sale.endSale();
     }
 
     /**
