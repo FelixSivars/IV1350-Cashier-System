@@ -12,7 +12,7 @@ public record ItemDTO(String id, String name, float price, String description, i
     /**
      * Converts this <code>ItemDTO</code> to an <code>Item</code>.
      *
-     * @return A new <code>Item</code> object containing the same data as this DTO.
+     * @return A new {@link Item} object containing the same data as this DTO.
      */
     public Item toItem() {
         return new Item(id, name, price, description, vatPercentage);
