@@ -76,6 +76,8 @@ public class Controller {
      *
      * @param itemId   The identifier of the item being scanned.
      * @param quantity The number of units of the item being scanned.
+     *
+     * @return The item details of the item getting scanned
      */
     public ItemDTO scanItem(String itemId, int quantity) {
         if (!inventoryRegistryHandler.isValidItemId(itemId)) {
