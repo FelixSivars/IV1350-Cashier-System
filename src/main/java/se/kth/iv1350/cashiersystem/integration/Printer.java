@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Locale;
 
 /**
- * Represents the printer used for printing receipts.
+ * Handles the printer used for printing receipts.
  */
 public class Printer {
 
