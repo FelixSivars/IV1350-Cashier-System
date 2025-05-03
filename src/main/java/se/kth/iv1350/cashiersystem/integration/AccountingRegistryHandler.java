@@ -14,6 +14,6 @@ public class AccountingRegistryHandler {
      *                that is needed to update the accounting registry.
      */
     public void updateAccountingRegistry(SaleDTO saleDTO) {
-        //TODO: unknown to the assignment how it updates
+        //TODO: updates external accounting registry
     }
 }
