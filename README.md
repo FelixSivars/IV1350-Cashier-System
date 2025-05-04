@@ -1,10 +1,10 @@
-# Point-of-Sale System
+# Cashier System
 
-A Java-based point-of-sale (POS) system implementing object-oriented design principles for retail store transactions.
+A Java-based cashier system implementing object-oriented design principles for retail store transactions.
 
 ## Project Overview
 
-This project is an implementation of a point-of-sale system that handles sales transactions in a retail environment. The system follows the Model-View-Controller (MVC) pattern and emphasizes high cohesion, low coupling, and proper encapsulation.
+This project is an implementation of a cashier/point-of-sale system that handles sales transactions in a retail environment. The system follows the Model-View-Controller (MVC) pattern and emphasizes high cohesion, low coupling, and proper encapsulation.
 
 ### Features
 
@@ -38,12 +38,12 @@ The system is organized into six main packages:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/IV1350-POS-System.git
+   git clone https://github.com/FelixSivars/IV1350-Cashier-System.git
    ```
 
 2. Navigate to the project directory:
    ```
-   cd IV1350-POS-System
+   cd IV1350-Cashier-System
    ```
 
 3. Build the project:
