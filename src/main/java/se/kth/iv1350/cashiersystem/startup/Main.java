@@ -2,7 +2,7 @@ package se.kth.iv1350.cashiersystem.startup;
 
 import se.kth.iv1350.cashiersystem.controller.Controller;
 import se.kth.iv1350.cashiersystem.integration.DiscountCatalog;
-import se.kth.iv1350.cashiersystem.integration.Printer;
+import se.kth.iv1350.cashiersystem.integration.PrinterService;
 import se.kth.iv1350.cashiersystem.integration.RegistryCreator;
 import se.kth.iv1350.cashiersystem.view.View;
 
@@ -17,9 +17,9 @@ public class Main {
      */
     public static void main(String[] args) {
         DiscountCatalog discountCatalog = new DiscountCatalog();
-        Printer printer = new Printer();
+        PrinterService printerService = new PrinterService();
         RegistryCreator registryCreator = new RegistryCreator();
-        Controller controller = new Controller(registryCreator, printer);
+        Controller controller = new Controller(registryCreator, printerService);
         View view = new View(controller);
 
         view.simulationRun();

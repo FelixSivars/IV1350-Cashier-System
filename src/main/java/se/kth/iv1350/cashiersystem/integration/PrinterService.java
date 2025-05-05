@@ -11,7 +11,7 @@ import java.util.Locale;
 /**
  * Handles the printer used for printing receipts.
  */
-public class Printer {
+public class PrinterService {
 
     /**
      * Prints the receipt for the completed sale.
