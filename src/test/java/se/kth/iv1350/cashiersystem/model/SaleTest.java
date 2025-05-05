@@ -7,7 +7,7 @@ import se.kth.iv1350.cashiersystem.controller.Controller;
 import se.kth.iv1350.cashiersystem.dto.ItemDTO;
 import se.kth.iv1350.cashiersystem.dto.ItemInCartDTO;
 import se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler;
-import se.kth.iv1350.cashiersystem.integration.Printer;
+import se.kth.iv1350.cashiersystem.integration.PrinterService;
 import se.kth.iv1350.cashiersystem.integration.RegistryCreator;
 
 import java.util.Iterator;
@@ -94,7 +94,7 @@ public class SaleTest {
     public void testVatCalculation() {
         // Create a new controller with a known VAT rate
         RegistryCreator registryCreator = new RegistryCreator();
-        Printer printer = new Printer();
+        PrinterService printer = new PrinterService();
         Controller testController = new Controller(registryCreator, printer);
 
         // Create an item with a known price and VAT rate (25%)

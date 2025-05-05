@@ -7,7 +7,7 @@ import se.kth.iv1350.cashiersystem.dto.ItemDTO;
 import se.kth.iv1350.cashiersystem.dto.ItemInCartDTO;
 import se.kth.iv1350.cashiersystem.dto.SaleDTO;
 import se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler;
-import se.kth.iv1350.cashiersystem.integration.Printer;
+import se.kth.iv1350.cashiersystem.integration.PrinterService;
 import se.kth.iv1350.cashiersystem.integration.RegistryCreator;
 
 import java.util.Collection;
@@ -25,7 +25,7 @@ public class ControllerTest {
         itemDTO = new ItemDTO("123", "Bobs Hallonsylt", 14.90f, "TASTY", 10);
 
         RegistryCreator registryCreator = new RegistryCreator();
-        Printer printer = new Printer();
+        PrinterService printer = new PrinterService();
         controller = new Controller(registryCreator, printer);
         controller.setInventoryRegistryHandler(new InventoryRegistryHandler(itemDTO));
     }

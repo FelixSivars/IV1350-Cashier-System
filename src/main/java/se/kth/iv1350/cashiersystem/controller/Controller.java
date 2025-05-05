@@ -4,7 +4,7 @@ import se.kth.iv1350.cashiersystem.dto.ItemDTO;
 import se.kth.iv1350.cashiersystem.dto.SaleDTO;
 import se.kth.iv1350.cashiersystem.integration.AccountingRegistryHandler;
 import se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler;
-import se.kth.iv1350.cashiersystem.integration.Printer;
+import se.kth.iv1350.cashiersystem.integration.PrinterService;
 import se.kth.iv1350.cashiersystem.integration.RegistryCreator;
 import se.kth.iv1350.cashiersystem.model.CashPayment;
 import se.kth.iv1350.cashiersystem.model.CashRegister;
@@ -16,7 +16,7 @@ import se.kth.iv1350.cashiersystem.model.Sale;
  * View-, Model- and Integration layers.
  */
 public class Controller {
-    private final Printer printer;
+    private final PrinterService printerService;
     private InventoryRegistryHandler inventoryRegistryHandler;
     private final AccountingRegistryHandler accountingRegistryHandler;
     private final CashRegister cashRegister = new CashRegister();
@@ -26,10 +26,10 @@ public class Controller {
      * Creates a new instance of <code>Controller</code>.
      *
      * @param registryCreator The creator of external registries.
-     * @param printer         The {@link Printer} that prints the receipt.
+     * @param printerService         The {@link PrinterService} that prints the receipt.
      */
-    public Controller(RegistryCreator registryCreator, Printer printer) {
-        this.printer = printer;
+    public Controller(RegistryCreator registryCreator, PrinterService printerService) {
+        this.printerService = printerService;
         this.inventoryRegistryHandler = registryCreator.getInventoryRegistryHandler();
         this.accountingRegistryHandler = registryCreator.getAccountingRegistryHandler();
     }
@@ -107,7 +107,7 @@ public class Controller {
      * Processes the payment made by the customer.
      * Creates a new instance of {@link CashPayment} and sets the amount to the amount paid by the customer,
      * creates a {@link SaleDTO} from {@link Sale},
-     * {@link Printer} receives {@link SaleDTO} and prints it out,
+     * {@link PrinterService} receives {@link SaleDTO} and prints it out,
      * updates external/internal systems with the data from {@link SaleDTO} and <code>totalPrice</code>.
      *
      * @param amountPaid The amount of money paid by the customer.
@@ -120,7 +120,7 @@ public class Controller {
         sale.setCashPayment(cashPayment);
 
         SaleDTO saleDTO = sale.toDTO();
-        printer.printReceipt(saleDTO);
+        printerService.printReceipt(saleDTO);
         updateSystems(saleDTO, totalPrice);
         return cashPayment.getChange();
     }
