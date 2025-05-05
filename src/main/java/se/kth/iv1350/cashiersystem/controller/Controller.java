@@ -116,13 +116,6 @@ public class Controller {
     public float processPayment(float amountPaid) {
         float totalPrice = sale.getRunningTotal();
 
-        // Validate payment amount is sufficient
-        if (amountPaid < totalPrice) {
-            System.out.println("Error: Insufficient payment. Amount paid: " + amountPaid + 
-                            ", Required: " + totalPrice);
-            return -1; // Using a negative value to indicate error
-        }
-
         CashPayment cashPayment = new CashPayment(amountPaid, totalPrice);
         sale.setCashPayment(cashPayment);
 
