@@ -74,6 +74,8 @@ public class Controller {
      * @param quantity The number of units of the item being scanned.
      *
      * @return The item details of the item getting scanned
+     * @throws OperationFailureException if the inventory catalog call failed
+     * or if the item ID is invalid.
      */
     public ItemDTO scanItem(String itemId, int quantity) throws OperationFailureException {
         try {
@@ -113,6 +115,7 @@ public class Controller {
      *
      * @param amountPaid The amount of money paid by the customer.
      * @return The amount of change to give back to the customer.
+     * @throws OperationFailureException if the paid amount is insufficient to the total price.
      */
     public float processPayment(float amountPaid) throws OperationFailureException {
         try {
