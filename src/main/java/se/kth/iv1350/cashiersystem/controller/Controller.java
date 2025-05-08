@@ -2,14 +2,9 @@ package se.kth.iv1350.cashiersystem.controller;
 
 import se.kth.iv1350.cashiersystem.dto.ItemDTO;
 import se.kth.iv1350.cashiersystem.dto.SaleDTO;
-import se.kth.iv1350.cashiersystem.integration.AccountingRegistryHandler;
-import se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler;
-import se.kth.iv1350.cashiersystem.integration.PrinterService;
-import se.kth.iv1350.cashiersystem.integration.RegistryCreator;
-import se.kth.iv1350.cashiersystem.model.CashPayment;
-import se.kth.iv1350.cashiersystem.model.CashRegister;
-import se.kth.iv1350.cashiersystem.model.Item;
-import se.kth.iv1350.cashiersystem.model.Sale;
+import se.kth.iv1350.cashiersystem.integration.*;
+import se.kth.iv1350.cashiersystem.model.*;
+import se.kth.iv1350.cashiersystem.util.FileLogger;
 
 /**
  * This is the application's only controller, it handles system operations and coordinates interactions between the
@@ -20,6 +15,7 @@ public class Controller {
     private InventoryRegistryHandler inventoryRegistryHandler;
     private final AccountingRegistryHandler accountingRegistryHandler;
     private final CashRegister cashRegister = new CashRegister();
+    private final FileLogger fileLogger = new FileLogger();
     private Sale sale;
 
     /**
@@ -79,19 +75,24 @@ public class Controller {
      *
      * @return The item details of the item getting scanned
      */
-    public ItemDTO scanItem(String itemId, int quantity) {
-        if (!inventoryRegistryHandler.isValidItemId(itemId)) {
-            return null;
-        }
-        ItemDTO itemDTO = getItemDTOFromId(itemId);
+    public ItemDTO scanItem(String itemId, int quantity) throws OperationFailureException {
+        try {
+            inventoryRegistryHandler.validateItemId(itemId);
 
-        if (sale.isItemInSale(itemId)) {
-            sale.increaseQuantity(itemId, quantity);
-        } else {
-            Item item = itemDTO.toItem();
-            sale.addItem(item, quantity);
+            ItemDTO itemDTO = getItemDTOFromId(itemId);
+
+            if (sale.isItemInSale(itemId)) {
+                sale.increaseQuantity(itemId, quantity);
+            } else {
+                Item item = itemDTO.toItem();
+                sale.addItem(item, quantity);
+            }
+            return itemDTO;
+        } catch (InvalidItemIdException | DatabaseFailureException e) {
+            OperationFailureException ex = new OperationFailureException(e);
+            fileLogger.log(ex);
+            throw ex;
         }
-        return itemDTO;
     }
 
     /**
@@ -113,16 +114,23 @@ public class Controller {
      * @param amountPaid The amount of money paid by the customer.
      * @return The amount of change to give back to the customer.
      */
-    public float processPayment(float amountPaid) {
-        float totalPrice = sale.getRunningTotal();
+    public float processPayment(float amountPaid) throws OperationFailureException {
+        try {
+            float totalPrice = sale.getRunningTotal();
 
-        CashPayment cashPayment = new CashPayment(amountPaid, totalPrice);
-        sale.setCashPayment(cashPayment);
+            CashPayment cashPayment = new CashPayment(amountPaid, totalPrice);
+            sale.setCashPayment(cashPayment);
 
-        SaleDTO saleDTO = sale.toDTO();
-        printerService.printReceipt(saleDTO);
-        updateSystems(saleDTO, totalPrice);
-        return cashPayment.getChange();
+            SaleDTO saleDTO = sale.toDTO();
+            printerService.printReceipt(saleDTO);
+            updateSystems(saleDTO, totalPrice);
+            return cashPayment.getChange();
+
+        } catch (InsufficientPaymentException e) {
+            OperationFailureException ex = new OperationFailureException(e);
+            fileLogger.log(ex);
+            throw ex;
+        }
     }
 
     private void updateSystems(SaleDTO saleDTO, float totalPrice) {
@@ -137,7 +145,7 @@ public class Controller {
      * @param itemId The item identification.
      * @return Item details.
      */
-    public ItemDTO getItemDTOFromId(String itemId) {
+    public ItemDTO getItemDTOFromId(String itemId) throws InvalidItemIdException {
         return inventoryRegistryHandler.fetchItemById(itemId);
     }
 

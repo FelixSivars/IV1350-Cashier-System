@@ -4,11 +4,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import se.kth.iv1350.cashiersystem.controller.Controller;
+import se.kth.iv1350.cashiersystem.controller.OperationFailureException;
 import se.kth.iv1350.cashiersystem.dto.ItemDTO;
 import se.kth.iv1350.cashiersystem.dto.ItemInCartDTO;
-import se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler;
-import se.kth.iv1350.cashiersystem.integration.PrinterService;
-import se.kth.iv1350.cashiersystem.integration.RegistryCreator;
+import se.kth.iv1350.cashiersystem.integration.*;
 
 import java.util.Iterator;
 
@@ -91,7 +90,7 @@ public class SaleTest {
     }
 
     @Test
-    public void testVatCalculation() {
+    public void testVatCalculation() throws DatabaseFailureException, OperationFailureException {
         // Create a new controller with a known VAT rate
         RegistryCreator registryCreator = new RegistryCreator();
         PrinterService printer = new PrinterService();

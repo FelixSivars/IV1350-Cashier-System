@@ -34,16 +34,28 @@ public class InventoryRegistryHandlerTest {
     }
 
     @Test
-    public void testFetchItemById() {
+    public void testFetchItemById() throws DatabaseFailureException, InvalidItemIdException {
         ItemDTO itemDTO = inventoryRegistryHandler.fetchItemById("123");
         assertEquals("Bobs Hallonsylt", itemDTO.name(),
                 "Fetched itemDTO's name should match the expected");
     }
 
     @Test
-    public void testIsValidItemId() {
-        assertTrue(inventoryRegistryHandler.isValidItemId("123"),
-                "ItemID should exist in the hardcoded ItemCatalog.");
+    public void testValidateItemIdException() {
+        assertThrows(InvalidItemIdException.class, () -> inventoryRegistryHandler.validateItemId("79"),
+                "The specified item id is invalid and thus expecting an InvalidItemIdException");
+    }
+
+    @Test
+    public void testDatabaseFailureException() {
+        assertThrows(DatabaseFailureException.class, () -> inventoryRegistryHandler.validateItemId("ghj789"),
+                "The specified item id is hardcoded to throw a DatabaseFailureException");
+    }
+
+    @Test
+    public void testValidateItemId() {
+        assertDoesNotThrow(() -> inventoryRegistryHandler.validateItemId("123"),
+                "The specified item id is valid and should not throw an exception.");
     }
 
     @Test

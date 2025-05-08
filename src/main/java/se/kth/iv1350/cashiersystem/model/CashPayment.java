@@ -16,14 +16,17 @@ public class CashPayment {
      * @param amountPaid The amount paid by the customer.
      * @param totalPrice The total price of the sale.
      */
-    public CashPayment(float amountPaid, float totalPrice) {
+    public CashPayment(float amountPaid, float totalPrice) throws InsufficientPaymentException {
         this.amountPaid = amountPaid;
 
         calculateChange(totalPrice);
     }
     
-    private void calculateChange(float totalPrice) {
+    private void calculateChange(float totalPrice) throws InsufficientPaymentException {
         change = amountPaid - totalPrice;
+
+        if (change < 0)
+            throw new InsufficientPaymentException(this.amountPaid, totalPrice);
     }
 
     /**

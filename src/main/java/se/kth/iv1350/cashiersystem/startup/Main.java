@@ -1,9 +1,8 @@
 package se.kth.iv1350.cashiersystem.startup;
 
 import se.kth.iv1350.cashiersystem.controller.Controller;
-import se.kth.iv1350.cashiersystem.integration.DiscountCatalog;
-import se.kth.iv1350.cashiersystem.integration.PrinterService;
-import se.kth.iv1350.cashiersystem.integration.RegistryCreator;
+import se.kth.iv1350.cashiersystem.controller.OperationFailureException;
+import se.kth.iv1350.cashiersystem.integration.*;
 import se.kth.iv1350.cashiersystem.view.View;
 
 /**
@@ -15,7 +14,7 @@ public class Main {
      *
      * @param args, The application does not take any command line parameters.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidItemIdException, DatabaseFailureException, OperationFailureException {
         DiscountCatalog discountCatalog = new DiscountCatalog();
         PrinterService printerService = new PrinterService();
         RegistryCreator registryCreator = new RegistryCreator();

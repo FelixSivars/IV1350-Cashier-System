@@ -22,11 +22,11 @@ public class PrinterService {
     public void printReceipt(SaleDTO saleDTO) {
         System.out.println("----------------- Begin receipt -----------------");
         printTimeOfSale(saleDTO.dateTime());
-        System.out.println("");
+        System.out.println(" ");
         printItemsInCart(saleDTO.itemsInCartDTO());
-        System.out.println("");
+        System.out.println(" ");
         printTotalPriceAndVat(saleDTO.runningTotal(), saleDTO.vatTotal());
-        System.out.println("");
+        System.out.println(" ");
         printAmountPaidAndChange(saleDTO.amountPaid(), saleDTO.change());
         System.out.println("------------------ End receipt ------------------");
 

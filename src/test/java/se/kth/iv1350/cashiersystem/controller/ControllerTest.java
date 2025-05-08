@@ -2,19 +2,17 @@ package se.kth.iv1350.cashiersystem.controller;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import se.kth.iv1350.cashiersystem.dto.ItemDTO;
 import se.kth.iv1350.cashiersystem.dto.ItemInCartDTO;
 import se.kth.iv1350.cashiersystem.dto.SaleDTO;
-import se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler;
-import se.kth.iv1350.cashiersystem.integration.PrinterService;
-import se.kth.iv1350.cashiersystem.integration.RegistryCreator;
+import se.kth.iv1350.cashiersystem.integration.*;
 
 import java.util.Collection;
 import java.util.Iterator;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ControllerTest {
     private static ItemDTO itemDTO;
@@ -36,7 +34,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void testScanItem() {
+    public void testScanItem() throws DatabaseFailureException, OperationFailureException {
         controller.scanItem("123", 1);
         SaleDTO saleDTO = controller.getSaleDTO();
 
@@ -47,7 +45,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void testScanRepeatedItem() {
+    public void testScanRepeatedItem() throws DatabaseFailureException, OperationFailureException {
         // Scan the same item twice
         controller.scanItem("123", 1);
         controller.scanItem("123", 1);
@@ -64,20 +62,27 @@ public class ControllerTest {
     }
 
     @Test
-    public void testScanInvalidItem() {
-        // Try to scan an item with an ID that doesn't exist in inventory
-        controller.scanItem("nonexistent", 1);
+    public void testScanInvalidItemException() {
+        assertThrows(OperationFailureException.class, () -> controller.scanItem("nonexistent", 1),
+                "The specified item id is invalid and thus expecting an OperationFailureException");
+    }
 
-        // Get sale information
-        SaleDTO saleDTO = controller.getSaleDTO();
-        Collection<ItemInCartDTO> itemsInCart = saleDTO.itemsInCartDTO();
+    @Disabled
+    @Test
+        public void testScanInvalidItem() throws DatabaseFailureException, OperationFailureException {
+            // Try to scan an item with an ID that doesn't exist in inventory
+            controller.scanItem("nonexistent", 1);
 
-        // Verify that no item was added
-        assertEquals(0, itemsInCart.size(), "No item should be added when scanning invalid ID");
+            // Get sale information
+            SaleDTO saleDTO = controller.getSaleDTO();
+            Collection<ItemInCartDTO> itemsInCart = saleDTO.itemsInCartDTO();
+
+            // Verify that no item was added
+            assertEquals(0, itemsInCart.size(), "No item should be added when scanning invalid ID");
     }
 
     @Test
-    public void testProcessPayment() {
+    public void testProcessPayment() throws DatabaseFailureException, OperationFailureException {
         controller.scanItem("123", 1);
         controller.endSale();
         float change = controller.processPayment(100);
@@ -87,7 +92,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void testGetItemDTOFromId() {
+    public void testGetItemDTOFromId() throws DatabaseFailureException, InvalidItemIdException {
         ItemDTO itemDTO = controller.getItemDTOFromId("123");
 
         assertEquals(ControllerTest.itemDTO, itemDTO, "Item should exist in item catalog.");
