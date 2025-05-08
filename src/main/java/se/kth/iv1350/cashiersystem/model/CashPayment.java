@@ -21,7 +21,11 @@ public class CashPayment {
 
         calculateChange(totalPrice);
     }
-    
+
+    /**
+    * @throws InsufficientPaymentException if the change between the amount paid and the
+    * total price is less than 0.
+    */
     private void calculateChange(float totalPrice) throws InsufficientPaymentException {
         change = amountPaid - totalPrice;
 
