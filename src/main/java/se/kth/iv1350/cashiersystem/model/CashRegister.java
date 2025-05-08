@@ -13,6 +13,11 @@ public class CashRegister {
     public CashRegister() {
     }
 
+    /**
+     * Gets the current amount of cash stored in the register.
+     *
+     * @return The total amount of cash in the register.
+     */
     public float getCashInRegister() {
         return cashInRegister;
     }
