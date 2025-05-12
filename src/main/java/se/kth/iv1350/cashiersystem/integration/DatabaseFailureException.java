@@ -1,10 +1,10 @@
 package se.kth.iv1350.cashiersystem.integration;
 
-public class DatabaseFailureException extends RuntimeException {
+public class DatabaseFailureException extends Exception {
     /**
      * throw DatabaseFailureException when id = 'ghj789'
      */
-    public DatabaseFailureException() {
-        super("The database could not be reached.");
+    public DatabaseFailureException(String message) {
+        super(message);
     }
 }

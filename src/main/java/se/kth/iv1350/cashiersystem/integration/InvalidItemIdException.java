@@ -12,7 +12,7 @@ public class InvalidItemIdException extends Exception {
      *
      * @param itemId The item ID that was not found in the inventory catalog.
      */
-    public InvalidItemIdException(String itemId) {
-        super("The item with the id '" + itemId + "' is invalid.");
+    public InvalidItemIdException(String message) {
+        super(message);
     }
 }

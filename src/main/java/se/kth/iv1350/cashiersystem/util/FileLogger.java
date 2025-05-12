@@ -3,14 +3,14 @@ package se.kth.iv1350.cashiersystem.util;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 
 /**
  * Handles logging of exceptions to a text file, which can then support error tracking.
  */
-public class FileLogger {
+public class FileLogger implements Logger {
     private PrintWriter logStream;
     static final String FILE_PATH = "log.txt";
 
@@ -20,7 +20,7 @@ public class FileLogger {
      */
     public FileLogger() {
         try {
-            logStream = new PrintWriter(new FileWriter(FILE_PATH), true);
+            logStream = new PrintWriter(new FileWriter(FILE_PATH, true), true);
         } catch (IOException ioe) {
             System.out.println("oops something went wrong.");
             ioe.printStackTrace();
@@ -32,16 +32,27 @@ public class FileLogger {
      *
      * @param e The exception written down in the log file.
      */
+    @Override
     public void log(Exception e) {
-        logStream.println("Date and time: \t" + getTimestamp());
-        logStream.println("Exception: \t\t" + e.getClass().getSimpleName());
-        logStream.println("Cause: \t\t\t" + e.getCause().getClass().getSimpleName());
-        logStream.println("Message: \t\t" + e.getCause().getMessage());
-        logStream.println(" ");
+        String message =
+                "Date and time: \t" + getTimestamp() + "\n" +
+                "Exception: \t\t" + e.getClass().getSimpleName() + "\n" +
+                "Cause: \t\t\t" + e.getCause().getClass().getSimpleName() + "\n" +
+                "Message: \t\t" + e.getCause().getMessage() + "\n" +
+                "\n" +
+                getStackTrace(e) + "\n";
+
+        logStream.println(message);
     }
 
     private String getTimestamp() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return LocalDateTime.now().format(formatter);
+    }
+
+    private String getStackTrace(Exception e) {
+        StringWriter stringWriter = new StringWriter();
+        e.printStackTrace(new PrintWriter(stringWriter));
+        return stringWriter.toString();
     }
 }

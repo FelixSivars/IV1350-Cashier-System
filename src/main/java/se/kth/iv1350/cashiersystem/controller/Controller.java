@@ -90,11 +90,17 @@ public class Controller {
                 sale.addItem(item, quantity);
             }
             return itemDTO;
-        } catch (InvalidItemIdException | DatabaseFailureException e) {
-            OperationFailureException ex = new OperationFailureException(e);
-            fileLogger.log(ex);
-            throw ex;
+        } catch (DatabaseFailureException e) {
+            throw logException("Could not add item, connection failure to the database. Please scan the item again.", e);
+        } catch (InvalidItemIdException e) {
+            throw logException("Could not add item. " + e.getMessage(), e);
         }
+    }
+
+    private OperationFailureException logException(String message, Exception causeException) throws OperationFailureException {
+        OperationFailureException ex = new OperationFailureException(message, causeException);
+        fileLogger.log(ex);
+        throw ex;
     }
 
     /**
@@ -130,9 +136,7 @@ public class Controller {
             return cashPayment.getChange();
 
         } catch (InsufficientPaymentException e) {
-            OperationFailureException ex = new OperationFailureException(e);
-            fileLogger.log(ex);
-            throw ex;
+            throw logException(e.getMessage(), e);
         }
     }
 
@@ -148,7 +152,7 @@ public class Controller {
      * @param itemId The item identification.
      * @return Item details.
      */
-    public ItemDTO getItemDTOFromId(String itemId) throws InvalidItemIdException {
+    public ItemDTO getItemDTOFromId(String itemId) throws InvalidItemIdException, DatabaseFailureException {
         return inventoryRegistryHandler.fetchItemById(itemId);
     }
 

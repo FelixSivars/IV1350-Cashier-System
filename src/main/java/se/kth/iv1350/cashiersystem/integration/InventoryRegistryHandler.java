@@ -39,10 +39,10 @@ public class InventoryRegistryHandler {
      */
     public ItemDTO fetchItemById(String itemId) throws InvalidItemIdException, DatabaseFailureException {
         if (itemId.equals("ghj789"))
-            throw new DatabaseFailureException();
+            throw new DatabaseFailureException("Could not fetch an item due to connection issues to the database.");
 
         if (itemCatalog.get(itemId) == null)
-            throw new InvalidItemIdException(itemId);
+            throw new InvalidItemIdException("The item with the id '" + itemId + "' could not be found in the item catalog.");
 
         return itemCatalog.get(itemId);
     }
@@ -53,7 +53,7 @@ public class InventoryRegistryHandler {
      * @param itemId The identification of the item to check.
      * @return <code>true</code> if the item exists, <code>false</code> otherwise.
      */
-    public boolean validateItemId(String itemId) throws InvalidItemIdException, DatabaseFailureException {
+    public boolean validateItemId(String itemId) throws DatabaseFailureException, InvalidItemIdException {
         return fetchItemById(itemId) != null;
     }
 

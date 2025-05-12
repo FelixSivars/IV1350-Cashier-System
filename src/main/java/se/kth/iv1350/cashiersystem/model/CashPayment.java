@@ -30,7 +30,7 @@ public class CashPayment {
         change = amountPaid - totalPrice;
 
         if (change < 0)
-            throw new InsufficientPaymentException(this.amountPaid, totalPrice);
+            throw new InsufficientPaymentException("Insufficient payment of " + amountPaid + " SEK for the minimum required amount of " + totalPrice + " SEK.");
     }
 
     /**

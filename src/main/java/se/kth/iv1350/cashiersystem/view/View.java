@@ -4,6 +4,7 @@ import se.kth.iv1350.cashiersystem.controller.Controller;
 import se.kth.iv1350.cashiersystem.controller.OperationFailureException;
 import se.kth.iv1350.cashiersystem.integration.DatabaseFailureException;
 import se.kth.iv1350.cashiersystem.integration.InvalidItemIdException;
+import se.kth.iv1350.cashiersystem.util.Logger;
 
 import java.util.Locale;
 
@@ -14,6 +15,7 @@ public class View {
     static final float AMOUNT_PAID = 10f;
 
     private Controller controller;
+    private Logger consoleLogger = new ConsoleLogger();
 
     /**
      * Constructs a new <code>View</code> object.
@@ -35,9 +37,7 @@ public class View {
 
         scanItem("abc123", 1);
         scanItem("egerg", 1);
-        scanItem("def456", 1);
-
-
+        scanItem("ghj789", 1);
 
         System.out.println("Sale End:");
         System.out.println("Total cost (incl VAT): " + controller.endSale() + " SEK");
@@ -56,7 +56,7 @@ public class View {
             System.out.println("Total cost (incl VAT): " + controller.getRunningTotal() + " SEK");
             System.out.printf(Locale.US, "Total VAT: %.2f SEK%n", controller.getVatTotal());
         } catch (OperationFailureException e) {
-            System.out.println(e.getMessage());
+            consoleLogger.log(e);
         }
         System.out.println(" ");
     }
