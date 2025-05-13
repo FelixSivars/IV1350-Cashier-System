@@ -14,10 +14,9 @@ public class Main {
      *
      * @param args, The application does not take any command line parameters.
      */
-    public static void main(String[] args) throws InvalidItemIdException, DatabaseFailureException, OperationFailureException {
-        DiscountCatalog discountCatalog = new DiscountCatalog();
-        PrinterService printerService = new PrinterService();
-        RegistryCreator registryCreator = new RegistryCreator();
+    public static void main(String[] args) throws DatabaseFailureException, OperationFailureException {
+        PrinterService printerService = PrinterService.getPrinterServiceInstance();
+        RegistryCreator registryCreator = RegistryCreator.getRegistryCreatorInstance();
         Controller controller = new Controller(registryCreator, printerService);
         View view = new View(controller);
 

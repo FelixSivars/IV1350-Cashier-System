@@ -20,7 +20,13 @@ public class InventoryRegistryHandlerTest {
 
     @BeforeAll
     public static void setUp() {
-        itemDTO = new ItemDTO("123", "Bobs Hallonsylt", 14.90f, "TASTY", 10);
+        itemDTO = new ItemDTO.Builder()
+                .id("123")
+                .name("Bobs Hallonsylt")
+                .price(14.90f)
+                .description("TASTY")
+                .vatPercentage(10)
+                .build();
     }
 
     @BeforeEach
@@ -42,19 +48,19 @@ public class InventoryRegistryHandlerTest {
 
     @Test
     public void testValidateItemIdException() {
-        assertThrows(InvalidItemIdException.class, () -> inventoryRegistryHandler.validateItemId("79"),
+        assertThrows(InvalidItemIdException.class, () -> inventoryRegistryHandler.fetchItemById("79"),
                 "The specified item id is invalid and thus expecting an InvalidItemIdException");
     }
 
     @Test
     public void testDatabaseFailureException() {
-        assertThrows(DatabaseFailureException.class, () -> inventoryRegistryHandler.validateItemId("ghj789"),
+        assertThrows(DatabaseFailureException.class, () -> inventoryRegistryHandler.fetchItemById("ghj789"),
                 "The specified item id is hardcoded to throw a DatabaseFailureException");
     }
 
     @Test
     public void testValidateItemId() {
-        assertDoesNotThrow(() -> inventoryRegistryHandler.validateItemId("123"),
+        assertDoesNotThrow(() -> inventoryRegistryHandler.fetchItemById("123"),
                 "The specified item id is valid and should not throw an exception.");
     }
 
@@ -64,18 +70,25 @@ public class InventoryRegistryHandlerTest {
 
         // Create a test SaleDTO
         Collection<ItemInCartDTO> items = new ArrayList<>();
-        ItemDTO itemDTO = new ItemDTO("123", "Test Item", 10.0f, "Test Description", 25);
+
+        ItemDTO itemDTO =  new ItemDTO.Builder()
+                .id("test")
+                .name("Test Item")
+                .price(10f)
+                .description("Description")
+                .vatPercentage(25)
+                .build();
+
         items.add(new ItemInCartDTO(itemDTO, 2));
 
-        SaleDTO saleDTO = new SaleDTO(
-                LocalDateTime.now(),
-                20.0f,   // runningTotal
-                5.0f,    // vatTotal
-                50.0f,   // amountPaid
-                30.0f,   // change
-                0.0f,    // discount
-                items    // itemsInCartDTO
-        );
+        SaleDTO saleDTO = new SaleDTO.Builder()
+                .dateTime(LocalDateTime.now())
+                .runningTotal(20f)
+                .vatTotal(5f)
+                .amountPaid(50f)
+                .change(30f)
+                .itemsInCartDTO(items)
+                .build();
 
         // Verify that no exception is thrown when updating
         assertDoesNotThrow(() -> inventoryHandler.updateInventoryRegistry(saleDTO),

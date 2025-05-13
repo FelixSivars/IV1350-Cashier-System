@@ -17,8 +17,10 @@ public class CashPayment {
      * @param totalPrice The total price of the sale.
      */
     public CashPayment(float amountPaid, float totalPrice) throws InsufficientPaymentException {
-        this.amountPaid = amountPaid;
+        if (amountPaid < totalPrice)
+            throw new InsufficientPaymentException("Could not process payment, insufficient amount paid.");
 
+        this.amountPaid = amountPaid;
         calculateChange(totalPrice);
     }
 
@@ -26,11 +28,8 @@ public class CashPayment {
     * @throws InsufficientPaymentException if the change between the amount paid and the
     * total price is less than 0.
     */
-    private void calculateChange(float totalPrice) throws InsufficientPaymentException {
+    private void calculateChange(float totalPrice) {
         change = amountPaid - totalPrice;
-
-        if (change < 0)
-            throw new InsufficientPaymentException("Insufficient payment of " + amountPaid + " SEK for the minimum required amount of " + totalPrice + " SEK.");
     }
 
     /**

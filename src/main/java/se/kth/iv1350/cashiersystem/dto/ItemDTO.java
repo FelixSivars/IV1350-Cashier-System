@@ -9,6 +9,43 @@ import se.kth.iv1350.cashiersystem.model.Item;
  */
 public record ItemDTO(String id, String name, float price, String description, int vatPercentage) {
 
+    public static final class Builder {
+        private String id;
+        private String name;
+        private float price;
+        private String description;
+        private int vatPercentage;
+
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder price(float price) {
+            this.price = price;
+            return this;
+        }
+
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Builder vatPercentage(int vatPercentage) {
+            this.vatPercentage = vatPercentage;
+            return this;
+        }
+
+        public ItemDTO build() {
+            return new ItemDTO(id, name, price, description, vatPercentage);
+        }
+    }
+
     /**
      * Converts this <code>ItemDTO</code> to an {@link Item}.
      *

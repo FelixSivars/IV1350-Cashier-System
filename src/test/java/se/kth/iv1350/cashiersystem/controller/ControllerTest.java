@@ -20,10 +20,16 @@ public class ControllerTest {
 
     @BeforeAll
     public static void setUp() {
-        itemDTO = new ItemDTO("123", "Bobs Hallonsylt", 14.90f, "TASTY", 10);
+        itemDTO = new ItemDTO.Builder()
+                .id("123")
+                .name("Bobs Hallonsylt")
+                .price(14.90f)
+                .description("TASTY")
+                .vatPercentage(10)
+                .build();
 
-        RegistryCreator registryCreator = new RegistryCreator();
-        PrinterService printer = new PrinterService();
+        RegistryCreator registryCreator = RegistryCreator.getRegistryCreatorInstance();
+        PrinterService printer = PrinterService.getPrinterServiceInstance();
         controller = new Controller(registryCreator, printer);
         controller.setInventoryRegistryHandler(new InventoryRegistryHandler(itemDTO));
     }
@@ -97,5 +103,27 @@ public class ControllerTest {
 
         assertEquals(ControllerTest.itemDTO, itemDTO, "Item should exist in item catalog.");
     }
+
+    @Test
+    public void testOperationFailureExceptionWithInvalidId() {
+        assertThrows(OperationFailureException.class, () -> controller.scanItem("invalid", 1),
+                "An invalid item id should throw an OperationFailureException.");
+    }
+
+    @Test
+    public void testOperationFailureExceptionWithDatabaseFailure() {
+        assertThrows(OperationFailureException.class, () -> controller.scanItem("ghj789", 1),
+                "The hardcoded item id should throw an OperationFailureException.");
+    }
+
+    @Test
+    public void testOperationFailureExceptionWithPayment() {
+        assertThrows(OperationFailureException.class, () -> {
+            controller.scanItem("123", 1);
+            controller.processPayment(0);
+                },
+                "Insufficient payment should throw an OperationFailureException.");
+    }
+
 }
 

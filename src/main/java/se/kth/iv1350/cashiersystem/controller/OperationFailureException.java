@@ -13,7 +13,7 @@ public class OperationFailureException extends Exception {
      *
      * @param cause The exception that caused the system operation to fail.
      */
-    public OperationFailureException(String message, Exception cause) {
-        super(message, cause);
+    public OperationFailureException(Exception cause) {
+        super("Failed to perform a system operation.", cause);
     }
 }

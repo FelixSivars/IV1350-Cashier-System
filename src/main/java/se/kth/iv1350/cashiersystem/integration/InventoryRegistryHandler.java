@@ -47,21 +47,28 @@ public class InventoryRegistryHandler {
         return itemCatalog.get(itemId);
     }
 
-    /**
-     * Checks whether the given item ID exists in the inventory registry.
-     *
-     * @param itemId The identification of the item to check.
-     * @return <code>true</code> if the item exists, <code>false</code> otherwise.
-     */
-    public boolean validateItemId(String itemId) throws DatabaseFailureException, InvalidItemIdException {
-        return fetchItemById(itemId) != null;
-    }
-
     private void fetchItems() {
-        itemCatalog.put("abc123", new ItemDTO("abc123", "BigWheel Oatmeal", 29.90f,
-                "BigWheel Oatmeal 500 g, whole grain oats, high fiber, gluten free", 6));
-        itemCatalog.put("def456", new ItemDTO("def456", "YouGoGo Blueberry", 14.90f,
-                "YouGoGo Blueberry 240 g, low sugar yogurt, blueberry flavour", 6));
+        itemCatalog.put(
+                "abc123",
+                new ItemDTO.Builder()
+                        .id("abc123")
+                        .name("BigWheel Oatmeal")
+                        .price(29.90f)
+                        .description("BigWheel Oatmeal 500 g, whole grain oats, high fiber, gluten free")
+                        .vatPercentage(6)
+                        .build()
+                );
+
+        itemCatalog.put(
+                "def456",
+                new ItemDTO.Builder()
+                        .id("def456")
+                        .name("YouGoGo Blueberry")
+                        .price(14.90f)
+                        .description("YouGoGo Blueberry 240 g, low sugar yogurt, blueberry flavour")
+                        .vatPercentage(6)
+                        .build()
+        );
     }
 
     /**

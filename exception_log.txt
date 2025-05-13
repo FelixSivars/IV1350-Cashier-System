@@ -1,0 +1,36 @@
+------------------ New Cashier Program ------------------
+Date and time: 	2025-05-13 16:13:33
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.view.View.scanItem(View.java:62)
+	at se.kth.iv1350.cashiersystem.view.View.simulationRun(View.java:42)
+	at se.kth.iv1350.cashiersystem.startup.Main.main(Main.java:23)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 3 more
+
+
+------------------ New Cashier Program ------------------
+Date and time: 	2025-05-13 16:13:55
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.view.View.scanItem(View.java:62)
+	at se.kth.iv1350.cashiersystem.view.View.simulationRun(View.java:42)
+	at se.kth.iv1350.cashiersystem.startup.Main.main(Main.java:23)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 3 more
+
+

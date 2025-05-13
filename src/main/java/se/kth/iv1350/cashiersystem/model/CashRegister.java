@@ -1,11 +1,15 @@
 package se.kth.iv1350.cashiersystem.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Represents the cash register that stores payment.
  * Initial balance is set to 0.
  */
 public class CashRegister {
     private float cashInRegister = 0f;
+    private List<Observer> observerList = new ArrayList<>();
 
     /**
      * Constructor for the <code>CashRegister</code> class.
@@ -30,5 +34,16 @@ public class CashRegister {
      */
     public void addCashInRegister(float totalPrice) {
         cashInRegister += totalPrice;
+        updateAllObservers();
+    }
+
+    public void updateAllObservers() {
+        for (Observer observer : observerList) {
+            observer.updateRevenue(cashInRegister);
+        }
+    }
+
+    public void addObserver(Observer observer) {
+        observerList.add(observer);
     }
 }

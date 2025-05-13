@@ -65,7 +65,6 @@ public class Sale {
         return null;
     }
 
-
     /**
      * Adds a new item to the sale.
      * Updates the running total and the total VAT after adding.
@@ -138,10 +137,22 @@ public class Sale {
         Collection<ItemInCartDTO> itemsInCartDTO = itemCollectionToDTO();
 
         if (cashPayment == null) {
-            return new SaleDTO(dateTime, runningTotal, vatTotal, 0, 0, discount, itemsInCartDTO);
+            return new SaleDTO.Builder()
+                    .dateTime(dateTime)
+                    .itemsInCartDTO(itemsInCartDTO)
+                    .runningTotal(runningTotal)
+                    .vatTotal(vatTotal)
+                    .build();
         }
 
-        return new SaleDTO(dateTime, runningTotal, vatTotal, cashPayment.getAmountPaid(), cashPayment.getChange(), discount, itemsInCartDTO);
+        return new SaleDTO.Builder()
+                .dateTime(dateTime)
+                .itemsInCartDTO(itemsInCartDTO)
+                .runningTotal(runningTotal)
+                .vatTotal(vatTotal)
+                .amountPaid(cashPayment.getAmountPaid())
+                .change(cashPayment.getChange())
+                .build();
     }
 
     private Collection<ItemInCartDTO> itemCollectionToDTO() {

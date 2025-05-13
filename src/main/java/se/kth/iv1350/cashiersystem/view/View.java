@@ -2,9 +2,8 @@ package se.kth.iv1350.cashiersystem.view;
 
 import se.kth.iv1350.cashiersystem.controller.Controller;
 import se.kth.iv1350.cashiersystem.controller.OperationFailureException;
-import se.kth.iv1350.cashiersystem.integration.DatabaseFailureException;
-import se.kth.iv1350.cashiersystem.integration.InvalidItemIdException;
 import se.kth.iv1350.cashiersystem.util.Logger;
+import se.kth.iv1350.cashiersystem.util.TotalRevenueFileOutput;
 
 import java.util.Locale;
 
@@ -12,10 +11,11 @@ import java.util.Locale;
  * This is a hardcoded simulation of the user interface.
  */
 public class View {
-    static final float AMOUNT_PAID = 10f;
+    static final float AMOUNT_PAID = 100f;
+    static final String UNEXPECTED_ERROR_MESSAGE = "An unexpected error occurred, please try again.";
 
-    private Controller controller;
-    private Logger consoleLogger = new ConsoleLogger();
+    private final Controller controller;
+    private final Logger consoleLogger = ConsoleLogger.getConsoleLoggerInstance();
 
     /**
      * Constructs a new <code>View</code> object.
@@ -24,6 +24,8 @@ public class View {
      */
     public View(Controller controller) {
         this.controller = controller;
+        controller.addRevenueObserver(new TotalRevenueView());
+        controller.addRevenueObserver(new TotalRevenueFileOutput());
     }
 
     /**
@@ -42,8 +44,15 @@ public class View {
         System.out.println("Sale End:");
         System.out.println("Total cost (incl VAT): " + controller.endSale() + " SEK");
 
-        float change = controller.processPayment(AMOUNT_PAID);
-        System.out.printf(Locale.US, "Change to give to customer: %.2f SEK%n", change);
+        try {
+            float change = controller.processPayment(AMOUNT_PAID);
+            System.out.printf(Locale.US, "Change to give to customer: %.2f SEK%n", change);
+        } catch (OperationFailureException e) {
+            switch (e.getCause().getClass().getSimpleName()) {
+                case "InsufficientPaymentException" -> consoleLogger.log("Insufficient payment of " + AMOUNT_PAID + " SEK for the minimum required amount of " + controller.getRunningTotal() + " SEK.");
+                default -> consoleLogger.log(UNEXPECTED_ERROR_MESSAGE);
+            }
+        }
     }
 
     private void scanItem(String itemId, int quantity) {
@@ -56,7 +65,11 @@ public class View {
             System.out.println("Total cost (incl VAT): " + controller.getRunningTotal() + " SEK");
             System.out.printf(Locale.US, "Total VAT: %.2f SEK%n", controller.getVatTotal());
         } catch (OperationFailureException e) {
-            consoleLogger.log(e);
+            switch (e.getCause().getClass().getSimpleName()) {
+                case "InvalidItemIdException" -> consoleLogger.log("Could not add the item to the sale, invalid item identifier.");
+                case "DatabaseFailureException" -> consoleLogger.log("Connection failed, please try again later.");
+                default -> consoleLogger.log(UNEXPECTED_ERROR_MESSAGE);
+            }
         }
         System.out.println(" ");
     }

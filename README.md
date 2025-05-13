@@ -31,7 +31,7 @@ The system is organized into six main packages:
 
 ### Prerequisites
 
-- Java JDK 17 or higher
+- Java JDK 21 or higher
 - Maven
 
 ### Installation

@@ -21,8 +21,22 @@ public class SaleTest {
     @BeforeEach
     public void startNewSale() {
         sale = new Sale();
-        itemDTO = new ItemDTO("123", "Bobs Hallonsylt", 14.90f, "TASTY", 10);
-        anotherItemDTO = new ItemDTO("456", "Felix Ketchup", 23.49f, "MUMS", 7);
+        
+        itemDTO = new ItemDTO.Builder()
+                .id("123")
+                .name("Bobs Hallonsylt")
+                .price(14.90f)
+                .description("TASTY")
+                .vatPercentage(10)
+                .build();
+
+        anotherItemDTO = new ItemDTO.Builder()
+                .id("456")
+                .name("Felix Ketchup")
+                .price(23.49f)
+                .description("MUMS")
+                .vatPercentage(7)
+                .build();
     }
 
     @AfterEach
@@ -92,12 +106,19 @@ public class SaleTest {
     @Test
     public void testVatCalculation() throws DatabaseFailureException, OperationFailureException {
         // Create a new controller with a known VAT rate
-        RegistryCreator registryCreator = new RegistryCreator();
-        PrinterService printer = new PrinterService();
+        RegistryCreator registryCreator = RegistryCreator.getRegistryCreatorInstance();
+        PrinterService printer = PrinterService.getPrinterServiceInstance();
         Controller testController = new Controller(registryCreator, printer);
 
         // Create an item with a known price and VAT rate (25%)
-        ItemDTO itemDTO = new ItemDTO("test", "Test Item", 100.0f, "Description", 25);
+        ItemDTO itemDTO =  new ItemDTO.Builder()
+                .id("test")
+                .name("Test Item")
+                .price(100f)
+                .description("Description")
+                .vatPercentage(25)
+                .build();
+
         InventoryRegistryHandler inventoryHandler = new InventoryRegistryHandler(itemDTO);
         testController.setInventoryRegistryHandler(inventoryHandler);
 

@@ -19,18 +19,24 @@ public class AccountingRegistryHandlerTest {
 
         // Create a test SaleDTO
         Collection<ItemInCartDTO> items = new ArrayList<>();
-        ItemDTO itemDTO = new ItemDTO("123", "Test Item", 10.0f, "Test Description", 25);
+        ItemDTO itemDTO = new ItemDTO.Builder()
+                .id("123")
+                .name("Bobs Hallonsylt")
+                .price(14.90f)
+                .description("TASTY")
+                .vatPercentage(10)
+                .build();
+
         items.add(new ItemInCartDTO(itemDTO, 2));
 
-        SaleDTO saleDTO = new SaleDTO(
-                LocalDateTime.now(),
-                20.0f,   // runningTotal
-                5.0f,    // vatTotal
-                50.0f,   // amountPaid
-                30.0f,   // change
-                0.0f,    // discount
-                items    // itemsInCartDTO
-        );
+        SaleDTO saleDTO = new SaleDTO.Builder()
+                .dateTime(LocalDateTime.now())
+                .runningTotal(20f)
+                .vatTotal(5f)
+                .amountPaid(50f)
+                .change(30f)
+                .itemsInCartDTO(items)
+                .build();
 
         // Verify that no exception is thrown when updating
         assertDoesNotThrow(() -> handler.updateAccountingRegistry(saleDTO),

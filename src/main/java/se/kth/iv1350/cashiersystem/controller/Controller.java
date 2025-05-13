@@ -15,7 +15,7 @@ public class Controller {
     private InventoryRegistryHandler inventoryRegistryHandler;
     private final AccountingRegistryHandler accountingRegistryHandler;
     private final CashRegister cashRegister = new CashRegister();
-    private final FileLogger fileLogger = new FileLogger();
+    private final FileLogger fileLogger = FileLogger.getFileLoggerInstance();
     private Sale sale;
 
     /**
@@ -79,8 +79,6 @@ public class Controller {
      */
     public ItemDTO scanItem(String itemId, int quantity) throws OperationFailureException {
         try {
-            inventoryRegistryHandler.validateItemId(itemId);
-
             ItemDTO itemDTO = getItemDTOFromId(itemId);
 
             if (sale.isItemInSale(itemId)) {
@@ -90,17 +88,13 @@ public class Controller {
                 sale.addItem(item, quantity);
             }
             return itemDTO;
-        } catch (DatabaseFailureException e) {
-            throw logException("Could not add item, connection failure to the database. Please scan the item again.", e);
         } catch (InvalidItemIdException e) {
-            throw logException("Could not add item. " + e.getMessage(), e);
+            throw new OperationFailureException(e);
+        } catch (DatabaseFailureException e) {
+            OperationFailureException operationFailureException = new OperationFailureException(e);
+            fileLogger.exceptionLog(operationFailureException);
+            throw  operationFailureException;
         }
-    }
-
-    private OperationFailureException logException(String message, Exception causeException) throws OperationFailureException {
-        OperationFailureException ex = new OperationFailureException(message, causeException);
-        fileLogger.log(ex);
-        throw ex;
     }
 
     /**
@@ -136,7 +130,7 @@ public class Controller {
             return cashPayment.getChange();
 
         } catch (InsufficientPaymentException e) {
-            throw logException(e.getMessage(), e);
+            throw new OperationFailureException(e);
         }
     }
 
@@ -164,6 +158,10 @@ public class Controller {
      */
     public SaleDTO getSaleDTO() {
         return sale.toDTO();
+    }
+
+    public void addRevenueObserver(Observer observer) {
+        cashRegister.addObserver(observer);
     }
 }
 

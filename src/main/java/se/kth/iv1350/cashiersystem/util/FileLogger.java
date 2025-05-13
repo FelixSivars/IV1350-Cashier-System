@@ -11,8 +11,14 @@ import java.time.format.DateTimeFormatter;
  * Handles logging of exceptions to a text file, which can then support error tracking.
  */
 public class FileLogger implements Logger {
+    private static final FileLogger FILE_LOGGER = new FileLogger();
+
     private PrintWriter logStream;
-    static final String FILE_PATH = "log.txt";
+    static final String FILE_PATH = "exception_log.txt";
+
+    public static FileLogger getFileLoggerInstance() {
+        return FILE_LOGGER;
+    }
 
     /**
      * Creates a new instance of <code>FileLogger</code> and opens a connection to the log file.
@@ -21,6 +27,7 @@ public class FileLogger implements Logger {
     public FileLogger() {
         try {
             logStream = new PrintWriter(new FileWriter(FILE_PATH, true), true);
+            logStream.println("------------------ New Cashier Program ------------------");
         } catch (IOException ioe) {
             System.out.println("oops something went wrong.");
             ioe.printStackTrace();
@@ -33,7 +40,7 @@ public class FileLogger implements Logger {
      * @param e The exception written down in the log file.
      */
     @Override
-    public void log(Exception e) {
+    public void exceptionLog(Exception e) {
         String message =
                 "Date and time: \t" + getTimestamp() + "\n" +
                 "Exception: \t\t" + e.getClass().getSimpleName() + "\n" +
@@ -42,6 +49,11 @@ public class FileLogger implements Logger {
                 "\n" +
                 getStackTrace(e) + "\n";
 
+        logStream.println(message);
+    }
+
+    @Override
+    public void log(String message) {
         logStream.println(message);
     }
 
