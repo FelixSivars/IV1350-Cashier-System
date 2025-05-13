@@ -34,3 +34,362 @@ Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Cou
 	... 3 more
 
 
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+------------------ New Cashier Program ------------------
+Date and time: 	2025-05-13 17:09:46
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.view.View.scanItem(View.java:117)
+	at se.kth.iv1350.cashiersystem.view.View.run(View.java:54)
+	at se.kth.iv1350.cashiersystem.startup.Main.main(Main.java:23)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 3 more
+
+
+Date and time: 	2025-05-13 17:14:30
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.controller.ControllerTest.lambda$testOperationFailureExceptionWithDatabaseFailure$2(ControllerTest.java:115)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3153)
+	at se.kth.iv1350.cashiersystem.controller.ControllerTest.testOperationFailureExceptionWithDatabaseFailure(ControllerTest.java:115)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:775)
+	at org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:479)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:161)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:152)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:91)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:112)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:94)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:87)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$4(TestMethodTestDescriptor.java:220)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:216)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:158)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:70)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:157)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:147)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:145)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:101)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:161)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:147)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:145)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:101)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:161)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:147)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:145)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:101)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:215)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:195)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:164)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:95)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:60)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:143)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:59)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:231)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 79 more
+
+
+Date and time: 	2025-05-13 17:14:53
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.controller.ControllerTest.lambda$testOperationFailureExceptionWithDatabaseFailure$2(ControllerTest.java:115)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:39)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3153)
+	at se.kth.iv1350.cashiersystem.controller.ControllerTest.testOperationFailureExceptionWithDatabaseFailure(ControllerTest.java:115)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:775)
+	at org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:479)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:161)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:152)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:91)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:112)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:94)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:87)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$4(TestMethodTestDescriptor.java:220)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:216)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:158)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:70)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:157)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:147)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:145)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:101)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:161)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:147)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:145)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:101)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:161)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:147)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:145)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:101)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:215)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:195)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:164)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:95)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:60)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:143)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:59)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:231)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 79 more
+
+
+Date and time: 	2025-05-13 17:14:56
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.view.View.scanItem(View.java:117)
+	at se.kth.iv1350.cashiersystem.view.View.simulationRun(View.java:93)
+	at se.kth.iv1350.cashiersystem.startup.Main.main(Main.java:24)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 3 more
+
+
+Date and time: 	2025-05-13 17:15:19
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.view.View.scanItem(View.java:119)
+	at se.kth.iv1350.cashiersystem.view.View.simulationRun(View.java:93)
+	at se.kth.iv1350.cashiersystem.startup.Main.main(Main.java:24)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 3 more
+
+
+Date and time: 	2025-05-13 17:18:25
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.view.View.scanItem(View.java:120)
+	at se.kth.iv1350.cashiersystem.view.View.simulationRun(View.java:93)
+	at se.kth.iv1350.cashiersystem.startup.Main.main(Main.java:24)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 3 more
+
+
+Date and time: 	2025-05-13 17:23:48
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.view.View.scanItem(View.java:120)
+	at se.kth.iv1350.cashiersystem.view.View.simulationRun(View.java:93)
+	at se.kth.iv1350.cashiersystem.startup.Main.main(Main.java:24)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 3 more
+
+
+Date and time: 	2025-05-13 17:24:32
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.view.View.scanItem(View.java:120)
+	at se.kth.iv1350.cashiersystem.view.View.simulationRun(View.java:93)
+	at se.kth.iv1350.cashiersystem.startup.Main.main(Main.java:24)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 3 more
+
+
+Date and time: 	2025-05-13 17:25:51
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.view.View.scanItem(View.java:120)
+	at se.kth.iv1350.cashiersystem.view.View.simulationRun(View.java:93)
+	at se.kth.iv1350.cashiersystem.startup.Main.main(Main.java:24)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 3 more
+
+
+Date and time: 	2025-05-13 17:26:26
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.view.View.scanItem(View.java:120)
+	at se.kth.iv1350.cashiersystem.view.View.simulationRun(View.java:93)
+	at se.kth.iv1350.cashiersystem.startup.Main.main(Main.java:24)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 3 more
+
+
+Date and time: 	2025-05-13 17:27:00
+Exception: 		OperationFailureException
+Cause: 			DatabaseFailureException
+Message: 		Could not fetch an item due to connection issues to the database.
+
+se.kth.iv1350.cashiersystem.controller.OperationFailureException: Failed to perform a system operation.
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:94)
+	at se.kth.iv1350.cashiersystem.view.View.scanItem(View.java:120)
+	at se.kth.iv1350.cashiersystem.view.View.simulationRun(View.java:93)
+	at se.kth.iv1350.cashiersystem.startup.Main.main(Main.java:24)
+Caused by: se.kth.iv1350.cashiersystem.integration.DatabaseFailureException: Could not fetch an item due to connection issues to the database.
+	at se.kth.iv1350.cashiersystem.integration.InventoryRegistryHandler.fetchItemById(InventoryRegistryHandler.java:42)
+	at se.kth.iv1350.cashiersystem.controller.Controller.getItemDTOFromId(Controller.java:150)
+	at se.kth.iv1350.cashiersystem.controller.Controller.scanItem(Controller.java:82)
+	... 3 more
+
+

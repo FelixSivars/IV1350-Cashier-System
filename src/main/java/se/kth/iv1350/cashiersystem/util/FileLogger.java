@@ -27,7 +27,6 @@ public class FileLogger implements Logger {
     public FileLogger() {
         try {
             logStream = new PrintWriter(new FileWriter(FILE_PATH, true), true);
-            logStream.println("------------------ New Cashier Program ------------------");
         } catch (IOException ioe) {
             System.out.println("oops something went wrong.");
             ioe.printStackTrace();

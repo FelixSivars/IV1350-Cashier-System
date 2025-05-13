@@ -15,7 +15,6 @@ public class TotalRevenueFileOutput implements Observer {
     public TotalRevenueFileOutput() {
         try {
             logStream = new PrintWriter(new FileWriter(FILE_PATH, true), true);
-            logStream.println("------------------ New Cashier Program ------------------");
         } catch (IOException ioe) {
             System.out.println("oops something went wrong.");
             ioe.printStackTrace();
@@ -24,7 +23,7 @@ public class TotalRevenueFileOutput implements Observer {
 
     @Override
     public void updateRevenue(float balance) {
-        logStream.println(getTimestamp() + "\nTotal Revenue: " + balance + "\n");
+        logStream.printf(getTimestamp() + "\nTotal Revenue: %.2f SEK\n\n", balance);
     }
 
     private String getTimestamp() {

@@ -56,7 +56,7 @@ public class PrinterService {
     }
 
     private void printTotalPriceAndVat(float runningTotal, float vat) {
-        System.out.println("Total: \t\t\t\t\t\t\t\t\t" + runningTotal + " SEK");
+        System.out.printf(Locale.US, "Total: \t\t\t\t\t\t\t\t\t%.2f SEK\n", runningTotal);
         System.out.printf(Locale.US, "VAT: \t\t\t\t\t\t\t\t\t%.2f SEK\n", vat);
     }
 

@@ -6,6 +6,6 @@ public class TotalRevenueView implements Observer {
 
     @Override
     public void updateRevenue(float balance) {
-        System.out.println("Balance in cash register: " + balance + " SEK");
+        System.out.printf("Balance in cash register: %.2f SEK %n", balance);
     }
 }
