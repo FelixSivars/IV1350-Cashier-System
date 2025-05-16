@@ -34,5 +34,5 @@ build/
 ### Mac OS ###
 .DS_Store
 .idea/workspace.xml
-log.txt
+exception_log.txt
 revenue_log.txt
