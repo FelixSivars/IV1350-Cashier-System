@@ -16,7 +16,7 @@ public class FileLogger implements Logger {
     private PrintWriter logStream;
     static final String FILE_PATH = "exception_log.txt";
 
-    public static FileLogger getFileLoggerInstance() {
+    public static FileLogger getInstance() {
         return FILE_LOGGER;
     }
 
@@ -27,6 +27,7 @@ public class FileLogger implements Logger {
     public FileLogger() {
         try {
             logStream = new PrintWriter(new FileWriter(FILE_PATH, true), true);
+            logStream.println("------------------ Program Started ------------------\n");
         } catch (IOException ioe) {
             System.out.println("oops something went wrong.");
             ioe.printStackTrace();

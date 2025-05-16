@@ -14,7 +14,7 @@ import java.util.Locale;
 public class PrinterService {
     private static final PrinterService PRINTER_SERVICE = new PrinterService();
 
-    public static PrinterService getPrinterServiceInstance() {
+    public static PrinterService getInstance() {
         return PRINTER_SERVICE;
     }
 
@@ -48,10 +48,9 @@ public class PrinterService {
             String itemName = item.itemDTO().name();
             int itemQuantity = item.quantity();
             float itemPrice = item.itemDTO().price();
-
-            String itemInCartLine = itemName + " \t\t\t" + itemQuantity + " x " +
-                    itemPrice + " \t" + itemQuantity * itemPrice + " SEK";
-            System.out.println(itemInCartLine);
+            
+            System.out.printf(Locale.US,"%s \t\t\t %s x %.2f \t%.2f SEK\n",
+                    itemName, itemQuantity, itemPrice, itemQuantity * itemPrice);
         }
     }
 

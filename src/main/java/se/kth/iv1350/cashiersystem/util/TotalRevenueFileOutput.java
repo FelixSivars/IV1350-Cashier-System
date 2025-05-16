@@ -15,6 +15,7 @@ public class TotalRevenueFileOutput implements Observer {
     public TotalRevenueFileOutput() {
         try {
             logStream = new PrintWriter(new FileWriter(FILE_PATH, true), true);
+            logStream.println("------------------ Program Started ------------------\n");
         } catch (IOException ioe) {
             System.out.println("oops something went wrong.");
             ioe.printStackTrace();

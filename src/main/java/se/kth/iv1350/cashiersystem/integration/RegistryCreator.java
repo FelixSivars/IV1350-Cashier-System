@@ -8,7 +8,7 @@ public class RegistryCreator {
     private final InventoryRegistryHandler inventoryRegistryHandler = new InventoryRegistryHandler();
     private final AccountingRegistryHandler accountingRegistryHandler = new AccountingRegistryHandler();
 
-    public static RegistryCreator getRegistryCreatorInstance() {
+    public static RegistryCreator getInstance() {
         return REGISTRY_CREATOR;
     }
 

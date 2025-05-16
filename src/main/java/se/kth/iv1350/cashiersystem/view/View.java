@@ -16,7 +16,7 @@ public class View {
     static final String UNEXPECTED_ERROR_MESSAGE = "An unexpected error occurred, please try again.";
 
     private final Controller controller;
-    private final Logger consoleLogger = ConsoleLogger.getConsoleLoggerInstance();
+    private final Logger consoleLogger = ConsoleLogger.getInstance();
 
     /**
      * Constructs a new <code>View</code> object.

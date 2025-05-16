@@ -28,8 +28,8 @@ public class ControllerTest {
                 .vatPercentage(10)
                 .build();
 
-        RegistryCreator registryCreator = RegistryCreator.getRegistryCreatorInstance();
-        PrinterService printer = PrinterService.getPrinterServiceInstance();
+        RegistryCreator registryCreator = RegistryCreator.getInstance();
+        PrinterService printer = PrinterService.getInstance();
         controller = new Controller(registryCreator, printer);
         controller.setInventoryRegistryHandler(new InventoryRegistryHandler(itemDTO));
     }

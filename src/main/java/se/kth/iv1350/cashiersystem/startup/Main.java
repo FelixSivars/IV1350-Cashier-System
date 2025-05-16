@@ -15,12 +15,12 @@ public class Main {
      * @param args, The application does not take any command line parameters.
      */
     public static void main(String[] args) throws DatabaseFailureException, OperationFailureException {
-        PrinterService printerService = PrinterService.getPrinterServiceInstance();
-        RegistryCreator registryCreator = RegistryCreator.getRegistryCreatorInstance();
+        PrinterService printerService = PrinterService.getInstance();
+        RegistryCreator registryCreator = RegistryCreator.getInstance();
         Controller controller = new Controller(registryCreator, printerService);
         View view = new View(controller);
 
-        //view.run();
-        view.simulationRun();
+        view.run();
+        //view.simulationRun();
     }
 }

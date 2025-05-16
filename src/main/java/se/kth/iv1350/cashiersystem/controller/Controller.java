@@ -15,7 +15,7 @@ public class Controller {
     private InventoryRegistryHandler inventoryRegistryHandler;
     private final AccountingRegistryHandler accountingRegistryHandler;
     private final CashRegister cashRegister = new CashRegister();
-    private final FileLogger fileLogger = FileLogger.getFileLoggerInstance();
+    private final FileLogger fileLogger = FileLogger.getInstance();
     private Sale sale;
 
     /**

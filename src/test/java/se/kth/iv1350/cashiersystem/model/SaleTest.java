@@ -106,8 +106,8 @@ public class SaleTest {
     @Test
     public void testVatCalculation() throws DatabaseFailureException, OperationFailureException {
         // Create a new controller with a known VAT rate
-        RegistryCreator registryCreator = RegistryCreator.getRegistryCreatorInstance();
-        PrinterService printer = PrinterService.getPrinterServiceInstance();
+        RegistryCreator registryCreator = RegistryCreator.getInstance();
+        PrinterService printer = PrinterService.getInstance();
         Controller testController = new Controller(registryCreator, printer);
 
         // Create an item with a known price and VAT rate (25%)
