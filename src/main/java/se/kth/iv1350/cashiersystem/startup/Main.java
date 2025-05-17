@@ -12,6 +12,8 @@ public class Main {
     /**
      * The main method used to start the entire application.
      *
+     * @throws DatabaseFailureException when there is a connection issue to the database during start up.
+     * @throws OperationFailureException when there is a general operation in the system that fails during runtime.
      * @param args, The application does not take any command line parameters.
      */
     public static void main(String[] args) throws DatabaseFailureException, OperationFailureException {

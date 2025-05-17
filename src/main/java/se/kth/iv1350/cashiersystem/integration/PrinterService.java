@@ -12,8 +12,14 @@ import java.util.Locale;
  * Handles the printer used for printing receipts.
  */
 public class PrinterService {
+   
     private static final PrinterService PRINTER_SERVICE = new PrinterService();
 
+    /**
+     * Returns the single instance of <code>PrinterService</code>.
+     *
+     * @return The singleton instance of <code>PrinterService</code>.
+     */
     public static PrinterService getInstance() {
         return PRINTER_SERVICE;
     }

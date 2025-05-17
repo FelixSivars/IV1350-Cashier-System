@@ -9,6 +9,9 @@ import se.kth.iv1350.cashiersystem.model.Item;
  */
 public record ItemDTO(String id, String name, float price, String description, int vatPercentage) {
 
+    /**
+     * A builder class for creating an {@link ItemDTO} instance using the Builder design pattern.
+     */
     public static final class Builder {
         private String id;
         private String name;
@@ -16,40 +19,76 @@ public record ItemDTO(String id, String name, float price, String description, i
         private String description;
         private int vatPercentage;
 
+        /**
+         * Sets the item ID.
+         *
+         * @param id The identifier of the item.
+         * @return This builder instance for method chaining.
+         */
         public Builder id(String id) {
             this.id = id;
             return this;
         }
 
+        /**
+         * Sets the item name.
+         *
+         * @param name The name of the item.
+         * @return This builder instance for method chaining.
+         */
         public Builder name(String name) {
             this.name = name;
             return this;
         }
 
+        /**
+         * Sets the item price.
+         *
+         * @param price The price of the item.
+         * @return This builder instance for method chaining.
+         */
         public Builder price(float price) {
             this.price = price;
             return this;
         }
 
+        /**
+         * Sets the item description.
+         *
+         * @param description The description of the item.
+         * @return This builder instance for method chaining.
+         */
         public Builder description(String description) {
             this.description = description;
             return this;
         }
 
+        /**
+         * Sets the item VAT percentage.
+         *
+         * @param vatPercentage The identifier of the item.
+         * @return This builder instance for method chaining.
+         */
         public Builder vatPercentage(int vatPercentage) {
             this.vatPercentage = vatPercentage;
             return this;
         }
 
+        /**
+         * Sets the item ID.
+         *
+         * @param id The identifier of the item.
+         * @return This builder instance for method chaining.
+         */
         public ItemDTO build() {
             return new ItemDTO(id, name, price, description, vatPercentage);
         }
     }
 
     /**
-     * Converts this <code>ItemDTO</code> to an {@link Item}.
+     * Builds a new {@link ItemDTO} instance using the current builder values.
      *
-     * @return A new {@link Item} object containing the same data as this DTO.
+     * @return A {@code ItemDTO} object.
      */
     public Item toItem() {
         return new Item(id, name, price, description, vatPercentage);
