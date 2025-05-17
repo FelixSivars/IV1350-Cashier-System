@@ -5,6 +5,11 @@ import se.kth.iv1350.cashiersystem.util.Logger;
 public class ConsoleLogger implements Logger {
     private static final ConsoleLogger CONSOLE_LOGGER = new ConsoleLogger();
 
+    /**
+     * Returns the single instance of <code>ConsoleLogger</code>.
+     *
+     * @return The singleton instance of <code>ConsoleLogger</code>.
+     */
     public static ConsoleLogger getInstance() {
         return CONSOLE_LOGGER;
     }

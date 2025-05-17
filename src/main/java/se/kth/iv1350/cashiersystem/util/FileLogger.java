@@ -16,6 +16,11 @@ public class FileLogger implements Logger {
     private PrintWriter logStream;
     static final String FILE_PATH = "exception_log.txt";
 
+    /**
+     * Returns the single instance of <code>FileLogger</code>.
+     *
+     * @return The singleton instance of <code>FileLogger</code>.
+     */
     public static FileLogger getInstance() {
         return FILE_LOGGER;
     }
