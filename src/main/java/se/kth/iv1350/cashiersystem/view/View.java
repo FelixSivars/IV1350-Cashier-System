@@ -29,6 +29,10 @@ public class View {
         controller.addRevenueObserver(new TotalRevenueFileOutput());
     }
 
+    /**
+     * A simulation of a sale transaction where you can enter values
+     *
+     */
     public void run() {
         String answer = "y";
         float payment = 0f;
@@ -76,6 +80,8 @@ public class View {
         System.out.println("Do you want to start a new sale? (y/n)");
         if (scanner.next().equalsIgnoreCase("y"))
             run();
+        else
+            scanner.close();
 
     }
 

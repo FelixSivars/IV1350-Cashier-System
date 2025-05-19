@@ -36,6 +36,8 @@ public class InventoryRegistryHandler {
      *
      * @param itemId The identification of the item to fetch.
      * @return The {@link ItemDTO} corresponding to the ID, or <code>null</code>if the item does not exist.
+     * @throws DatabaseFailureException when there is no response from the database
+     * @throws InvalidItemIdException when the item ID is invalid
      */
     public ItemDTO fetchItemById(String itemId) throws InvalidItemIdException, DatabaseFailureException {
         if (itemId.equals("ghj789"))
