@@ -22,7 +22,7 @@ public class Main {
         Controller controller = new Controller(registryCreator, printerService);
         View view = new View(controller);
 
-        //view.run();
-        view.simulationRun();
+        view.run();
+        //view.simulationRun();
     }
 }

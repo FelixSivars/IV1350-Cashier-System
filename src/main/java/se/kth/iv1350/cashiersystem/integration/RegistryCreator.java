@@ -1,6 +1,7 @@
 package se.kth.iv1350.cashiersystem.integration;
 
 /**
+ * A singleton implementation of the <code>RegistryCreator</code> 
  * Creates and provides access to external registries
  */
 public class RegistryCreator {

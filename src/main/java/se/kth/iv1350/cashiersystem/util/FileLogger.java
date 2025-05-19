@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
+ * A singleton implementation of the <code>FileLogger</code> interface 
  * Handles logging of exceptions to a text file, which can then support error tracking.
  */
 public class FileLogger implements Logger {

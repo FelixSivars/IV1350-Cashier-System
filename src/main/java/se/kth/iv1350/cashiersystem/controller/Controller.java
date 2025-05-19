@@ -21,7 +21,7 @@ public class Controller {
     /**
      * Creates a new instance of <code>Controller</code>.
      *
-     * @param registryCreator The creator of external registries.
+     * @param registryCreator        The creator of external registries.
      * @param printerService         The {@link PrinterService} that prints the receipt.
      */
     public Controller(RegistryCreator registryCreator, PrinterService printerService) {
@@ -160,6 +160,11 @@ public class Controller {
         return sale.toDTO();
     }
 
+    /**
+     * Registers an observer that will be notified when revenue is updated.
+     *
+     * @param observer The observer that should be notified of revenue changes.
+     */
     public void addRevenueObserver(RevenueObserver observer) {
         cashRegister.addRevenueObserver(observer);
     }

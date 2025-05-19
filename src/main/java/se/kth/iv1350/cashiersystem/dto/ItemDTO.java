@@ -75,9 +75,9 @@ public record ItemDTO(String id, String name, float price, String description, i
         }
 
         /**
-         * Builds a new {@link ItemDTO} instance using the current builder values.
+         * Builds a new <code>ItemDTO</code> instance using the current builder values.
          *
-         * @return The built {@code ItemDTO}.
+         * @return The built <code>ItemDTO</code>.
          */
         public ItemDTO build() {
             return new ItemDTO(id, name, price, description, vatPercentage);
@@ -85,9 +85,9 @@ public record ItemDTO(String id, String name, float price, String description, i
     }
 
     /**
-     * Builds a new {@link ItemDTO} instance using the current builder values.
+     * Converts this <code>ItemDTO</code> to an {@link Item} object.
      *
-     * @return A {@code ItemDTO} object.
+     * @return A new {@link Item} instance with the same values as this DTO.
      */
     public Item toItem() {
         return new Item(id, name, price, description, vatPercentage);

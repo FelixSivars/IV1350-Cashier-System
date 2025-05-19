@@ -37,12 +37,21 @@ public class CashRegister {
         updateAllObservers();
     }
 
+    /**
+     * Notifies all registered observers implementing the {@link RevenueObserver} interface
+     * to update revenue by calling the updateRevenue method in the RevenueObserver.
+     */
     public void updateAllObservers() {
         for (RevenueObserver observer : revenueObserverList) {
             observer.updateRevenue(cashInRegister);
         }
     }
 
+    /**
+     * Registers a {@link RevenueObserver} to be notified of revenue updates.
+     *
+     * @param observer The observer to be added to the notification list.
+     */
     public void addRevenueObserver(RevenueObserver observer) {
         revenueObserverList.add(observer);
     }

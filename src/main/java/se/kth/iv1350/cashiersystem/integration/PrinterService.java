@@ -25,6 +25,7 @@ public class PrinterService {
     }
 
     /**
+     * A singleton implementation of the <code>PrinterService</code> object
      * Prints the receipt for the completed sale.
      * The receipt includes the date and time of the sale, item details, total price, total VAT, amount paid by the customer and the change returned.
      *

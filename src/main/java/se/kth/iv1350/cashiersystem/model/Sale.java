@@ -19,9 +19,6 @@ public class Sale {
     private float runningTotal;
     private float vatTotal;
 
-    //Not in seminar 3.
-    private float discount = 0;
-
     /**
      * Checks if the item is already in the current sale.
      *
