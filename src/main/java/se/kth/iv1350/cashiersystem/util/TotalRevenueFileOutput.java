@@ -1,6 +1,6 @@
 package se.kth.iv1350.cashiersystem.util;
 
-import se.kth.iv1350.cashiersystem.model.Observer;
+import se.kth.iv1350.cashiersystem.model.RevenueObserver;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class TotalRevenueFileOutput implements Observer {
+public class TotalRevenueFileOutput implements RevenueObserver {
     private static String FILE_PATH = "revenue_log.txt";
     private PrintWriter logStream;
 

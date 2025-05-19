@@ -75,10 +75,9 @@ public record ItemDTO(String id, String name, float price, String description, i
         }
 
         /**
-         * Sets the item ID.
+         * Builds a new {@link ItemDTO} instance using the current builder values.
          *
-         * @param id The identifier of the item.
-         * @return This builder instance for method chaining.
+         * @return The built {@code ItemDTO}.
          */
         public ItemDTO build() {
             return new ItemDTO(id, name, price, description, vatPercentage);

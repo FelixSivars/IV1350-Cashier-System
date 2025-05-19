@@ -1,10 +1,10 @@
 package se.kth.iv1350.cashiersystem.view;
 
-import se.kth.iv1350.cashiersystem.model.Observer;
+import se.kth.iv1350.cashiersystem.model.RevenueObserver;
 
 import java.util.Locale;
 
-public class TotalRevenueView implements Observer {
+public class TotalRevenueView implements RevenueObserver {
 
     @Override
     public void updateRevenue(float balance) {

@@ -160,8 +160,8 @@ public class Controller {
         return sale.toDTO();
     }
 
-    public void addRevenueObserver(Observer observer) {
-        cashRegister.addObserver(observer);
+    public void addRevenueObserver(RevenueObserver observer) {
+        cashRegister.addRevenueObserver(observer);
     }
 }
 

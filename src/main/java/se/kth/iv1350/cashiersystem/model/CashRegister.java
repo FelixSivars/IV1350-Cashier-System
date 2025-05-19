@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class CashRegister {
     private float cashInRegister = 0f;
-    private List<Observer> observerList = new ArrayList<>();
+    private final List<RevenueObserver> revenueObserverList = new ArrayList<>();
 
     /**
      * Constructor for the <code>CashRegister</code> class.
@@ -38,12 +38,12 @@ public class CashRegister {
     }
 
     public void updateAllObservers() {
-        for (Observer observer : observerList) {
+        for (RevenueObserver observer : revenueObserverList) {
             observer.updateRevenue(cashInRegister);
         }
     }
 
-    public void addObserver(Observer observer) {
-        observerList.add(observer);
+    public void addRevenueObserver(RevenueObserver observer) {
+        revenueObserverList.add(observer);
     }
 }

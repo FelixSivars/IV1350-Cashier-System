@@ -91,7 +91,7 @@ public record SaleDTO(LocalDateTime dateTime, float runningTotal, float vatTotal
         /**
          * Builds a new {@link SaleDTO} instance using the current builder values.
          *
-         * @return A {@code SaleDTO} object.
+         * @return The built {@code SaleDTO}.
          */
         public SaleDTO build() {
             return new SaleDTO(dateTime, runningTotal, vatTotal, amountPaid, change, itemsInCartDTO);
