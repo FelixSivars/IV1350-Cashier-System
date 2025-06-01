@@ -15,6 +15,8 @@ public class PrinterService {
    
     private static final PrinterService PRINTER_SERVICE = new PrinterService();
 
+    private PrinterService() {}
+
     /**
      * Returns the single instance of <code>PrinterService</code>.
      *

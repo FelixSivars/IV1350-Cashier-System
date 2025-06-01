@@ -30,7 +30,7 @@ public class FileLogger implements Logger {
      * Creates a new instance of <code>FileLogger</code> and opens a connection to the log file.
      * If the file cannot be accessed or created, an error message is printed to the console.
      */
-    public FileLogger() {
+    private FileLogger() {
         try {
             logStream = new PrintWriter(new FileWriter(FILE_PATH, true), true);
             logStream.println("------------------ Program Started ------------------\n");
