@@ -11,6 +11,11 @@ public class RegistryCreator {
     private final AccountingRegistryHandler accountingRegistryHandler = new AccountingRegistryHandler();
 
     /**
+     * Constructor for the <code>RegistryCreator</code> class.
+     */
+    private RegistryCreator() {}
+
+    /**
      * Returns the single instance of <code>RegistryCreator</code>.
      *
      * @return The singleton instance of <code>RegistryCreator</code>.

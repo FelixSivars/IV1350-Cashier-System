@@ -8,6 +8,8 @@ import se.kth.iv1350.cashiersystem.util.Logger;
 public class ConsoleLogger implements Logger {
     private static final ConsoleLogger CONSOLE_LOGGER = new ConsoleLogger();
 
+    private ConsoleLogger() {}
+
     /**
      * Returns the single instance of <code>ConsoleLogger</code>.
      *
