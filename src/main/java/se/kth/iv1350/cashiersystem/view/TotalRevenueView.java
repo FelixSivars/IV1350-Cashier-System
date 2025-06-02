@@ -1,22 +1,32 @@
 package se.kth.iv1350.cashiersystem.view;
-
-import se.kth.iv1350.cashiersystem.model.RevenueObserver;
+import se.kth.iv1350.cashiersystem.model.TemplateRevenueObserver;
 
 import java.util.Locale;
 
 /**
- * A {@link RevenueObserver} implementation that displays the total revenue
- * in the console whenever an update is received.
+ * Displays the total revenue of all sales made since the program started in the console.
+ * Extends {@link TemplateRevenueObserver} and defines console output behavior.
  */
-public class TotalRevenueView implements RevenueObserver {
+public class TotalRevenueView extends TemplateRevenueObserver {
 
     /**
-     * Displays the updated total revenue in the console.
-     *
-     * @param balance The updated revenue value to display.
+     * Displays the total revenue in the console.
+     * 
+     * @throws Exception If an error occurs during printing (rare for console).
      */
     @Override
-    public void updateRevenue(float balance) {
-        System.out.printf(Locale.US,"Balance in cash register: %.2f SEK %n", balance);
+    protected void doShowTotalIncome() {
+        System.out.printf(Locale.US, "Balance in cash register: %.2f SEK%n", getTotalIncome());
+    }
+
+
+    /**
+     * Handles any exceptions that occur while trying to display income to the console.
+     *
+     * @param e The exception that occurred.
+     */
+    @Override
+    protected void handleErrors(Exception e) {
+        System.out.println("Failed to display revenue: " + e.getMessage());
     }
 }

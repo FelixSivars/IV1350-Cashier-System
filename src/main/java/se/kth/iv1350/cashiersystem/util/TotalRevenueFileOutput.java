@@ -1,18 +1,20 @@
 package se.kth.iv1350.cashiersystem.util;
 
 import se.kth.iv1350.cashiersystem.model.RevenueObserver;
+import se.kth.iv1350.cashiersystem.model.TemplateRevenueObserver;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 /**
- * A {@link RevenueObserver} implementation that logs total revenue updates to a file.
- * Each update appends a timestamped revenue entry to revenue_log.txt}.
+ * Logs the total revenue of all sales to a file.
+ * Extends {@link TemplateRevenueObserver} and defines file writing behavior.
  */
-public class TotalRevenueFileOutput implements RevenueObserver {
+public class TotalRevenueFileOutput extends TemplateRevenueObserver {
     private static String FILE_PATH = "revenue_log.txt";
     private PrintWriter logStream;
 
@@ -30,14 +32,27 @@ public class TotalRevenueFileOutput implements RevenueObserver {
         }
     }
 
-     /**
-     * Appends the current total revenue to the log file with a timestamp.
+    /**
+     * Writes the total income to a file named "revenue_log.txt".
      *
-     * @param balance The current total revenue to log.
+     * @throws IOException If the file could not be written to.
      */
     @Override
-    public void updateRevenue(float balance) {
-        logStream.printf(getTimestamp() + "\nTotal Revenue: %.2f SEK\n\n", balance);
+    protected void doShowTotalIncome() throws IOException {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_PATH, true))) {
+            writer.printf(getTimestamp() + "\nTotal revenue: %.2f SEK%n", getTotalIncome());
+        }
+    }
+
+
+    /**
+     * Handles any exceptions that occur while trying to log revenue to a file.
+     *
+     * @param e The exception that occurred.
+     */
+    @Override
+    protected void handleErrors(Exception e) {
+        System.out.println("Failed to log revenue to file: " + e.getMessage());
     }
 
     private String getTimestamp() {
